@@ -1,0 +1,348 @@
+% Licensed under the Creative Commons Attribution Share Alike 4.0 International.
+% See the LICENSE file in the repository root for full license text.
+
+\section{$\R^n$ 的子空间的正交补}
+
+\subsection{子空间的正交补与向量空间的分解}
+
+给定 $\R^n$ 的一个子空间，我们想要知道，在 $\R^n$ 中有哪些向量与该子空间的所有向量都正交。为此，我们提出以下概念。
+
+\begin{definition}{正交}
+	设 $U$ 是欧几里得空间 $\R^n$ 的一个子空间，如果向量 $\vec \alpha$ 与 $U$ 中的每一个向量都正交，那么称 $\vec \alpha$ 与 $U$ \emph{正交}，记作 $\vec \alpha \perp U$。
+\end{definition}
+
+\begin{definition}{正交补}
+	定义 $\R^n$ 的子空间 $U$ 的\emph{正交补} $U^\perp$ 为：
+	$$
+	U^\perp \triangleq \{ \vec \alpha \in \R^n \colon \vec \alpha \perp U \}
+	$$
+\end{definition}
+
+可见，正交补即是上面的问题中要研究的对象。正交补满足什么性质？以下定理描述了正交补最基本的特征。
+
+\begin{theorem}
+	设 $U$ 是 $\R^n$ 的一个子空间，则 $U^\perp$ 也是 $\R^n$ 的一个子空间。
+\end{theorem}
+
+\begin{proof}
+	由于 $\vec 0 \perp U$，因而 $\vec 0 \in U^\perp$，可知 $U^\perp$ 非空。任取 $\vec \alpha, \vec \beta \in U^\perp$，则 $\forall \vec \gamma \in U$，有：
+	$$
+	(\vec \alpha + \vec \beta, \vec \gamma) = (\vec \alpha, \vec \gamma) + (\vec \beta, \vec \gamma) = 0
+	$$$$
+	(k \vec \alpha, \vec \gamma) = k(\vec \alpha, \vec \gamma) = 0
+	$$
+
+	说明 $\vec \alpha + \vec \beta \in U^\perp$ 且 $k \vec \alpha \in U^\perp$，即 $U^\perp$ 是 $\R^n$ 的一个子空间。
+\end{proof}
+
+有了正交补的概念，我们能更好地描述 $\R^n$ 的结构，见以下定理。
+
+\begin{theorem}
+	设 $U$ 是 $\R^n$ 的一个子空间，则：
+	$$
+	U \cap U^\perp = \{ \vec 0\}
+	$$
+\end{theorem}
+
+\begin{proof}
+	由于 $U$ 是一个 $\mathbb K^n$ 的一个线性子空间，所以 $\vec 0 \in U$。前面已经证明，$\vec 0 \in U^\perp$。
+
+	$\forall \vec v \in U^\perp \pod{\vec v \ne \vec 0}$，假设 $\vec v \in U$，那么由标准内积的正定性可知 $(\vec v, \vec v) > 0$（将左侧看作 $\vec v \in U^\perp$，将右侧看作 $\vec v \in U$），这与 $\forall w \in U, (\vec v, \vec w) = 0$ 矛盾，故 $\vec v \not \in U$。
+
+	综上可得 $U \cap U^\perp = \{\vec 0\}$。
+\end{proof}
+
+\begin{theorem}
+	设 $U$ 是 $\R^n$ 的一个子空间，则：
+	$$
+	\dim U + \dim U^\perp = \dim \R^n = n
+	$$
+\end{theorem}
+
+\begin{proof}
+	设 $U = \langle \vec \alpha_1, \ldots, \vec \alpha_s \rangle$，其中 $\vec \alpha_1, \ldots, \vec \alpha_s$ 线性无关（规定这些向量都是列向量）。对于 $\R^n$ 中的向量 $\vec \alpha$，易证：
+	$$
+	\vec \alpha \in U^\perp \Longleftrightarrow (\vec \alpha, \vec \alpha_i) = 0 \pod{i = 1, \ldots, s}
+	$$
+
+	于是 $\vec \alpha_i^T \vec \alpha = 0 \pod{i = 1, \ldots, s}$。将 $s$ 个这样的等式合在一起，可以得到：
+	$$
+	\begin{bmatrix} \vec \alpha_1 & \cdots & \vec \alpha_s \end{bmatrix}^T \vec \alpha = \vec 0
+	$$
+
+	即可知 $\vec \alpha$ 是齐次线性方程组 $\begin{bmatrix} \vec \alpha_1 & \cdots & \vec \alpha_s \end{bmatrix}^T \vec x = \vec 0$ 的一组解，所以有：
+	$$
+	U^\perp = \operatorname{Ker} \begin{bmatrix} \vec \alpha_1 & \cdots & \vec \alpha_s \end{bmatrix}^T
+	$$
+
+	由重要维数公式\footnote{$\dim \operatorname{Ker} \phi = n - \operatorname{rank}(A)$，其中 $A$ 是线性映射 $\phi$ 对应的矩阵，$n$ 是 $A$ 的列数。}：
+	$$
+	\begin{aligned}
+		\dim U^\perp &= n - \operatorname{rank} \begin{bmatrix} \vec \alpha_1 & \cdots & \vec \alpha_s \end{bmatrix}^T
+		\\&=
+		n - s
+	\end{aligned}
+	$$
+\end{proof}
+
+更深刻地，我们有以下定理。我们首先提出一个引理。
+
+\begin{theorem}
+	对于实数域上的 $s \times n$ 矩阵，有：
+	$$
+	\operatorname{rank}(A^T A) = \operatorname{rank}(A) = \operatorname{rank}(AA^T)
+	$$
+\end{theorem}
+
+\begin{proof}[方法一]
+	证明 $(A'A) \vec x = \vec 0$ 与 $A \vec x = \vec 0$ 同解。
+
+	设 $\vec \eta$ 是 $A \vec x = \vec 0$ 的任意一个解，即 $A \vec \eta = \vec 0$，则 $A'A \vec \eta = \vec 0$，于是可知 $\vec \eta$ 也是 $(A'A) \vec x = \vec 0$ 的一个解。
+
+	设 $\vec \eta$ 是 $(A'A) \vec x = \vec 0$ 的任意一个解，即 $A' A \vec \eta = \vec 0$，则可知 $\vec \eta' A' A \vec \eta = \vec 0$，即 $(A \vec \eta)' A \vec \eta = \vec 0$。注意到 $A \vec \eta$ 是一个 $1 \times n$ 的矩阵，将它看作一个列向量，则该式等价于一个向量与它自身的内积等于 $0$。由标准内积的正定性，可知这个向量是零向量，即 $A \vec \eta = \vec 0$，于是可知 $\vec \eta$ 也是 $A \vec x = \vec 0$ 的一个解。
+
+	综上，$(A'A)\vec x = \vec 0$ 与 $A \vec x = \vec 0$ 同解，所以 $A'A$ 与 $A$ 的解空间的维数相等，进一步它们的秩也相等。令 $A = A^T$，可得第二个等号也成立。证毕。
+\end{proof}
+
+\begin{proof}[方法二]
+	设 $\operatorname{rank}(A) = r$，可知 $r \le \min \{s, n\}$。使用比内柯西公式计算 $AA'$ 的任一 $r$ 阶主子式：
+	$$
+	\begin{aligned}
+		(AA') \begin{pmatrix} i_1, \ldots, i_r \\ i_1, \ldots, i_r \end{pmatrix} &= \sum\limits_{1 \le v_1 < \cdots < v_r \le n} A \begin{pmatrix} i_1, \ldots, i_r \\ v_1, \ldots, v_r \end{pmatrix} A' \begin{pmatrix} v_1, \ldots, v_r \\ i_1, \ldots, i_r \end{pmatrix}
+		\\&=
+		\sum\limits_{1 \le v_1 < \cdots < v_r \le n} \Biggl( A \begin{pmatrix} i_1, \ldots, i_r \\ v_1, \ldots, v_r \end{pmatrix} \Biggr)^2
+	\end{aligned}
+	$$
+
+	由于至少存在一个 $A$ 的 $r$ 阶子式不为 $0$，所以 $AA'$ 至少存在一个 $r$ 阶主子式不为 $0$，则可得 $\operatorname{rank}(AA') \ge \operatorname{rank}(A)$\footnote{任一非零矩阵的秩等于它的不为零的子式的最高阶数。}。又由于 $AA'$ 的每个列向量都可以看作 $A$ 的列向量组的线性组合，即 $AA'$ 可由 $A$ 线性表出，则可得 $\operatorname{rank}(AA') \le \operatorname{rank}(A)$。综上，$\operatorname{rank}(AA') = \operatorname{rank}(A) = r$。令 $A = A^T$，可得第二个等号也成立。证毕。
+\end{proof}
+
+\begin{theorem}
+	设 $\R^n$ 的一个子空间为 $U$，则 $\R^n$ 中的任何一个向量都可以唯一地表示为 $U$ 中的一个向量与 $U^\perp$ 中的一个向量的和，即 $\forall \vec \alpha \in \R^n, \exists \vec \beta \in U, \vec \gamma \in U^\perp$，使得 $\vec \alpha = \vec \beta + \vec \gamma$。
+\end{theorem}
+
+\begin{proof}
+	设 $U$ 的一组正交基是 $\vec \alpha_1, \ldots, \vec \alpha_s$，记 $\vec \beta = \sum\limits_{i = 1}^{s} x_i \vec \alpha_i$。假设 $\vec \alpha \in \R^n$ 可以被分解成 $\vec \beta + \vec \gamma$，下面证明这种分解是存在的，并且这种分解是唯一的。
+
+	根据假设，已知 $(\vec \alpha - \vec \beta) \perp U$，则有：
+	$$
+	\biggl( \vec \alpha - \sum\limits_{j = 1}^s x_j \vec \alpha_j \biggr) \perp U
+	$$
+
+	于是，对于 $i = 1, \ldots, s$，有：
+	$$
+	\biggl( \vec \alpha - \sum\limits_{j = 1}^s x_j \vec \alpha_j, \vec \alpha_i \biggr) = 0
+	$$
+
+	展开得：
+	$$
+	(\vec \alpha, \vec \alpha_i) - x_j \sum\limits_{j = 1}^s (\vec \alpha_j, \vec \alpha_i) = 0 \pod{i = 1, \cdots, s}
+	$$
+
+	由于 $(\vec \alpha_i, \vec \alpha_j) = 0 \pod{i \ne j}$，所以化简上式可得：
+	$$
+	(\vec \alpha, \vec \alpha_i) = x_i (\vec a_i, \vec a_i)
+	$$
+
+	若假设成立，则该式成立。反之，若存在 $x_i \pod{i = 1, 2, \ldots, s}$ 使得该式成立，则可代入 $x_i$ 得到满足条件的 $\vec \beta$ 和 $\vec \gamma$。
+
+	\bigskip
+
+	定义矩阵 $M$：
+	$$
+	M =
+	\begin{bmatrix}
+	(\vec \alpha_1, \vec \alpha_1) & \cdots & (\vec \alpha_1, \vec \alpha_s)
+	\\
+	\vdots && \vdots
+	\\
+	(\vec \alpha_s, \vec \alpha_1) & \cdots & (\vec \alpha_s, \vec \alpha_s)
+	\end{bmatrix}_{s \times s}
+	$$
+
+	注意 $(\vec \alpha_i, \vec \alpha_j) = 0 \pod{i \ne j}$。规定以上向量都是列向量，则可以记 $(\vec \alpha_i ,\vec \alpha_j) = \vec \alpha_i^T \vec \alpha_j$，则 $M$ 可以写成如下分块矩阵的乘积：
+	$$
+	M =
+	\begin{bmatrix} \vec \alpha_1^T \\ \vec \alpha_2^T \\ \vdots \\ \vec \alpha_s^T \end{bmatrix}
+	\begin{bmatrix} \vec \alpha_1 & \vec \alpha_2 & \cdots & \vec \alpha_s \end{bmatrix}
+	$$
+
+	定义 $Q = \begin{bmatrix} \vec \alpha_1 & \vec \alpha_2 & \cdots & \vec \alpha_s \end{bmatrix}$，则 $M$ 可简记为 $M = Q^T Q$。由引理可知\footnote{$\operatorname{rank}(A^T A) = \operatorname{rank}(A) = \operatorname{rank}(AA^T)$}，$\operatorname{rank}(M) = \operatorname{rank}(Q)$。由于 $Q$ 是一个列满秩的矩阵，所以 $M$ 也是一个列满秩的矩阵。
+
+	\bigskip
+
+	要能够将 $\vec \alpha$ 分解成 $\vec \beta + \vec \gamma$，必须有 $x_i (\vec a_i, \vec a_i) = (\vec \alpha, \vec \alpha_i)$。于是解方程组：
+	$$
+	x_i \vec a_i^T \vec a_i = \vec \alpha^T \vec \alpha_i \pod{i = 1, 2, \ldots, s}
+	$$
+
+	将该方程组记作矩阵乘法的形式，得（注意 $(\vec \alpha_i, \vec \alpha_j) = 0 \pod{i \ne j}$）：
+	$$
+	M \vec x = Y
+	$$
+	其中 $Y = \bigl( (\vec \alpha, \vec \alpha_i) \bigr)_{s \times 1}$。
+
+	由于 $M$ 是一个列满秩的矩阵，所以 $x_i \pod{i = 1, 2, \ldots, s}$ 有唯一解。则可知，存在唯一的这样一组 $x_i$，构成 $\vec \beta = \sum\limits_{i = 1}^s x_i \vec \alpha_i$ 和 $\vec \gamma = \vec \alpha - \vec \beta$，满足 $\vec \beta \in U$，$\vec \gamma \in U^\perp$，使得 $\vec \alpha = \vec \beta + \vec \gamma$。证毕。
+
+\end{proof}
+
+以上定理提出了一种分解向量（或者说分解向量空间）的方法。顺着分解向量空间的思路，我们提出以下概念。
+
+\begin{definition}{线性子空间的和}
+	设 $V, W$ 都是 $\mathbb K^n$ 的线性子空间，定义它们的\emph{和} $V + W$ 为：
+	$$
+	V + W \triangleq \{\vec v + \vec w \colon \vec v \in V, \vec w \in W\}
+	$$
+
+	不难证明 $V + W$ 也是 $\mathbb K^n$ 的一个线性子空间。
+\end{definition}
+
+则根据以上定理，我们可以很容易地得出以下结论。
+
+\begin{theorem}
+	设 $\R^n$ 的一个子空间为 $U$，则：
+	$$
+	U + U^\perp = \R^n
+	$$
+\end{theorem}
+
+\subsection{正交投影、正交基、正交矩阵}
+
+前面提到的一个重要定理是，向量空间可以分解为子空间和其正交补的和。通过这一定理可以引出什么几何性质？据此，我们提出正交投影的概念。
+
+\begin{definition}{正交投影}
+	设 $U$ 是欧几里得空间 $\R^n$ 的一个子空间。设映射 $P_U$ 为 $\begin{aligned}P_U \colon & \R^n \to \R^n \\& \vec \alpha \mapsto \vec \alpha_1 \end{aligned}$，其中 $\vec \alpha_1 \in U$，并且 $\vec \alpha - \vec \alpha_1 \in U^\perp$，则称 $P_U$ 是 $\R^n$ 在 $U$ 上的\emph{正交投影}，把 $\vec \alpha_1$ 称为向量 $\vec \alpha$ 在 $U$ 上的\emph{正交投影}。
+\end{definition}
+
+从以下定理我们可以看到正交投影的几何意义。
+
+\begin{theorem}
+	设 $\vec \alpha \in \R^n$，$\vec \beta \in U$。则 $\vec \beta$ 是 $\vec \alpha$ 在 $U$ 上的正交投影当且仅当 $\forall \vec \delta \in U, |\vec \alpha - \vec \beta| \le |\vec \alpha - \vec \delta|$。
+\end{theorem}
+
+\begin{proof}
+	必要性。设 $\vec \alpha = \vec \beta + \vec \gamma \pod{\vec \beta \in U, \vec \gamma \in U^\perp}$。对 $\vec \alpha - \vec \delta = \vec \alpha - \vec \beta + \vec \beta - \vec \delta$ 两侧取平方，得：
+	$$
+	|\vec \alpha - \vec \delta|^2 = |\vec \alpha - \vec \beta|^2 + |\vec \beta - \vec \delta|^2 \ge |\vec \alpha - \vec \beta|^2
+	$$
+	其中，由于 $\vec \alpha - \vec \beta\in U^\perp$，$\vec \beta - \vec \delta \in U$，所以右式平方后只剩两个平方项。
+
+	充分性。设 $\vec \alpha$ 在 $U$ 上的正交投影是 $\vec \beta_0$，则由已知条件和必要性可得 $|\vec \alpha - \vec \beta| \le |\vec \alpha - \vec \beta_0|$ 和 $|\vec \alpha - \vec \beta_0| \le |\vec \alpha - \vec \beta|$，即 $|\vec \alpha - \vec \beta| = |\vec \alpha - \vec \beta_0|$。对 $\vec \alpha - \vec \beta = \vec \alpha - \vec \beta_0 + \vec \beta_0 - \vec \beta$ 两侧取平方，得 $|\vec \alpha - \vec \beta_0|^2 = |\vec \alpha - \vec \beta|^2 + |\vec \beta - \vec \beta_0|^2$，所以 $|\vec \beta - \vec \beta_0|^2 = 0$。由标准内积的正定性，可知 $\vec \beta = \vec \beta_0$。
+\end{proof}
+
+以上定理说明了 $\vec \beta$ 是 $\vec \alpha$ 在 $U$ 上的正交投影的充分必要条件，我们可以将其作为正交投影的等价定义。
+
+\bigskip
+
+前面的证明过程中，提到了正交基的概念，我们在此进行形式化的说明与定义。
+
+\begin{theorem}
+	欧几里得空间 $\R^n$ 中，正交向量组一定是线性无关的。
+\end{theorem}
+
+\begin{proof}
+	设 $\vec \alpha_1, \vec \alpha_2, \ldots, \vec \alpha_s$ 是正交向量组，设 $k_1 \vec \alpha_1 + \cdots + k_s \vec \alpha_s = \vec 0$，则有：
+	$$
+	(k_1 \vec \alpha_1 + k_2 \vec \alpha_2 + \cdots + k_s \vec \alpha_s, \vec \alpha_i) = (\vec 0, \vec \alpha_i) \pod{i = 1, \cdots, s}
+	$$
+
+	化简得：$k_i (\vec \alpha_i, \vec \alpha_i) = 0$。又由标准内积的正定性，可以推导出 $k_i = 0$。即关于 $\{k_i\}$ 的方程组 $k_1 \vec \alpha_1 + \cdots + k_s \vec \alpha_s = \vec 0$ 没有非零解，故正交向量组线性无关。
+\end{proof}
+
+\begin{definition}{正交基}
+	欧几里得空间 $\R^n$ 中，$n$ 个向量组成的正交向量组一定是 $\R^n$ 的一个基，称它为\emph{正交基}。
+\end{definition}
+
+\begin{definition}{标准正交基}
+	$n$ 个单位向量组成的正交向量组称为 $\R^n$ 的一个\emph{标准正交基}。特别地，$\vec e_1, \ldots, \vec e_n$ 是 $\R^n$ 的标准正交基。
+\end{definition}
+
+\bigskip
+
+正交基与正交矩阵有着密不可分的联系。
+
+\begin{theorem}
+	实数域上的 $n$ 级矩阵 $A$ 是正交矩阵的充分必要条件为：$A$ 的行（列）向量组是欧几里得空间 $\R^n$ 的一个标准正交基。
+\end{theorem}
+
+\begin{proof}
+	设 $A$ 的行向量组为 $\vec \gamma_1, \ldots, \vec \gamma_n$，则以下条件依次充分必要：
+	\begin{itemize}
+		\item 实数域上 $n$ 级矩阵 $A$ 是正交矩阵。
+		\item $\vec \gamma_i \vec \gamma'_j = \delta_{ij} \pod{1 \le i, j \le n}$
+		\item $(\vec \gamma_i, \vec \gamma_j) = \delta_{ij} \pod{1 \le i, j \le n}$
+		\item $\vec \gamma_1, \ldots, \vec \gamma_n$ 是 $\R^n$ 的一个标准正交基。
+	\end{itemize}
+
+	列向量组同理。证毕。
+\end{proof}
+
+\begin{theorem}
+	设 $A$ 是 $n$ 级方阵，则以下命题等价：
+	\begin{enumerate}
+		\item $A$ 是正交矩阵。
+		\item $A$ 的行（列）向量是 $\R^n$ 的一组标准正交基。
+		\item 对于映射 $\begin{aligned} \varphi \colon & \R^n \to \R^n \\ & \vec x \mapsto A \vec x \end{aligned}$，满足 $\forall \vec x \in \R^n, |A \vec x| = |\vec x|$。
+		\item 对于任意的一组标准正交基 $\vec \alpha_1, \ldots, \vec \alpha_n$（列向量），满足 $A \vec \alpha_1, \ldots, A \vec \alpha_n$ 也是标准正交基。
+	\end{enumerate}
+\end{theorem}
+
+我们已经证明了第一点和第二点的等价性。
+
+\begin{proof}[$2 \Longrightarrow 3$]
+	$$
+	\forall \vec x \in \R^n, (A \vec x, A \vec x) = (A\vec x)^T A \vec x = \vec x^T A^T A \vec x = x^T x = (\vec x, \vec x)
+	$$
+\end{proof}
+
+\begin{proof}[$4 \Longrightarrow 1$]
+	令 $B = \begin{bmatrix} \vec \alpha_1 & \cdots & \vec \alpha_n \end{bmatrix}$ ，由于 $\vec \alpha_1, \ldots, \vec \alpha_n$ 是标准正交基，所以 $B$ 是正交矩阵。
+
+	由于 $AB = \begin{bmatrix} A \vec \alpha_1 & \cdots & A \vec \alpha_n \end{bmatrix}$，可知 $AB$ 也是正交矩阵。则：
+	$$
+	A = ABB^{-1} = (AB) B^{-1}
+	$$
+
+	由于正交矩阵乘以正交矩阵仍然是正交矩阵：
+	$$
+	(AB)^T(AB) = B^TA^TAB = I_n
+	$$
+
+	而 $B^{-1}$ 是正交矩阵，因此 $A$ 也是正交矩阵。
+\end{proof}
+
+\subsubsection{正交投影应用举例：线性方程组的最小二乘解}
+
+考虑线性方程组 $A \vec X = \vec \beta$，若它无解，能否考虑一下它的近似解？
+
+\begin{definition}{最小二乘解}
+	设 $A$ 是实数域上的一个 $m \times n$ 矩阵，$m > n$，$\vec \beta \in \R^m$。如果 $\vec x_0 \in \R^n$ 使得 $\forall \vec x \in \R^n, |\vec \beta - A \vec x_0| \le |\vec \beta - A \vec x|$，那么称 $\vec x_0$ 是线性方程组 $A \vec x = \vec \beta$ 的\emph{最小二乘解}。
+\end{definition}
+
+显然线性方程组 $A \vec x_0 = \vec \beta$ 的最小二乘解是 $\vec \beta$ 在 $A$ 的列向量张成的线性子空间的正交投影。
+
+\begin{theorem}
+	$\vec x_0$ 是 $A \vec x = \vec \beta$ 的最小二乘解当且仅当 $\vec x_0$ 是线性方程组 $A'A \vec x = A' \vec \beta$ 的解。
+\end{theorem}
+
+\begin{proof}
+	用 $U$ 表示矩阵 $A$ 的列空间，即 $U = \langle \vec \alpha_1, \ldots, \vec \alpha_n \rangle$，则以下条件依次充分必要：
+	\begin{itemize}
+		\item $\vec x_0$ 是 $A \vec x = \vec \beta$ 的最小二乘解。
+		\item $A \vec x_0$ 是 $\vec \beta$ 在 $U$ 上的正交投影。
+		\item $\vec \beta - A \vec x_0 \in U^\perp$
+		\item $(\vec \beta - A \vec x_0, \vec \alpha_i) = 0 \pod{i = 1, \ldots, n}$
+		\item $\vec a'_i (\vec \beta - A \vec x_0) = 0 \pod{i = 1, \ldots, n}$
+		\item $A'(\vec \beta - A \vec x_0) = \vec 0$
+		\item $A'A \vec x_0 = A' \vec \beta$
+		\item $\vec x_0$ 是 $A'A \vec x = A' \vec \beta$ 的解。
+	\end{itemize}
+
+	证毕。另一方面，考察线性方程组 $A'A \vec x = A' \vec \beta$ 的解一定存在的原因：
+	$$
+	\operatorname{rank}(A'A) \le \operatorname{rank}(A'(A|\vec \beta)) \le \operatorname{rank}(A') = \operatorname{rank}(A'A)
+	$$
+	其中，$(A|\vec \beta)$ 是分块矩阵的表示；第二个小于等于号的原因是 $A'(A|\vec \beta)$ 的列向量组中的每一个向量都是 $A'$ 的列向量组的线性组合。
+
+	最后可知 $\operatorname{rank}(A'(A|\vec \beta)) = \operatorname{rank}(A'A)$，即线性方程组 $A'A \vec x = A' \vec \beta$ 一定有解。
+\end{proof}

@@ -1,0 +1,166 @@
+% Licensed under the Creative Commons Attribution Share Alike 4.0 International.
+% See the LICENSE file in the repository root for full license text.
+
+\section{正定二次型}
+
+\subsection{正定二次型与正定矩阵}
+
+对于欧式几何而言，在 $\R^n$ 上定义内积，要求内积函数满足对称性、双线性、正定性。我们已经学习了标准内积：
+$$
+(\vec \alpha, \vec \beta) = a_1 b_1 + \cdots + a_n b_n
+$$
+自然要问，是否存在其他内积函数？
+
+可以发现，内积函数被定义为对称的二重线性函数。所以要研究上面的问题，只需要研究对称的二重线性函数的正定性，即只需要研究二次型的取值情况。
+
+\begin{definition}{正定的实二次型,正定}
+	设 $n$ 元实二次型 $\vec X^T A \vec X$。如果对于 $\R^n$ 中任意非零列向量 $\vec \alpha$，都有 $\vec \alpha^T A \vec \alpha > 0$，则称 $\vec X^T A \vec X$ 为\emph{正定的实二次型}，称 $\vec X^T A \vec X$ 是\emph{正定}的。
+\end{definition}
+
+联想到实二次型的标准形和规范形，显然有以下结论成立。
+
+\begin{theorem}
+	$n$ 元实二次型 $\vec X^T A \vec X$ 是正定的，当且仅当它的正惯性指数等于 $n$。
+\end{theorem}
+
+\begin{proof}
+	必要性。设 $\vec X^T A \vec X$ 是正定的，作非退化线性替换 $\vec X = C \vec Y$，化成规范形：
+	$$
+	y_1^2 + \cdots + y_p^2 - y_{p + 1}^2 - \cdots - y_r^2
+	$$
+
+	如果 $p < n$，那么 $y_n^2$ 的系数为 $0$ 或 $-1$，取 $\vec \beta = (0, \ldots, 0, 1)'$，令 $\vec \alpha = C \vec  \beta$，则 $\vec \alpha^T A \vec \alpha = 0$ 或 $-1$，矛盾，因此 $p = n$。
+
+	\bigskip
+
+	充分性。设 $\vec X^T A \vec X$ 的正惯性指数等于 $n$，则可以作非退化线性替换 $\vec X = C \vec Y$，化成规范形：
+	$$
+	y_1^2 + \cdots + y_n^2
+	$$
+
+	任取 $\vec \alpha \in \R^n$ 且 $\vec \alpha \ne \vec 0$，令 $\vec \beta = C^{-1} \vec \alpha = (b_1, \ldots, b_n)'$，则 $\vec \beta \ne \vec 0$，从而得出 $\vec \alpha^T A \vec \alpha = b_1^2 + \cdots + b_n^2 > 0$，因此 $\vec X^T A \vec X$ 是正定的。
+\end{proof}
+
+\begin{theorem}
+	$n$ 元实二次型 $\vec X^T A \vec X$ 是正定的 $\Longleftrightarrow$ 它的规范形为 $y_1^2 + y_2^2 + \cdots + y_n^2$ $\Longleftrightarrow$ 它的标准形中 $n$ 个系数全大于 $0$。
+\end{theorem}
+
+\begin{definition}{正定的实对称矩阵,正定,正定矩阵}
+	设实对称矩阵 $A$。如果实二次型 $\vec X^T A \vec X$ 是正定的，即对于 $\R^n$ 中任意非零列向量 $\vec \alpha$，有 $\vec \alpha^T A \vec \alpha > 0$，则称 $A$ 是\emph{正定的实对称矩阵}，称 $A$ 是\emph{正定}的。正定的实对称矩阵简称为\emph{正定矩阵}。
+\end{definition}
+
+\subsection{正定矩阵的等价命题}
+
+联想到矩阵的合同、合同标准形、合同规范形等概念，可以提出以下有关正定矩阵的一系列等价命题。
+
+设 $A$ 是 $n$ 级\textbf{实对称矩阵}，则下列命题等价：
+
+\begin{enumerate}
+	\item 正定矩阵的定义：$\forall \vec X \in \R^n \backslash \{\vec 0\}, \vec X^T A \vec X > 0$
+	\item $A \simeq I_n$
+	\item $A$ 的正惯性指数为 $n$。
+	\item 存在一个正交矩阵 $P$ 使得 $P^T A P = \operatorname{diag}\{ \lambda_1, \ldots, \lambda_n \}$，其中 $\lambda_i > 0$，且分别为 $A$ 的所有特征值。
+	\item 有 $n$ 级实可逆矩阵 $C$ 使得 $A = C^T C$。
+	\item $A$ 的各阶顺序主子式（$n$ 级矩阵有 $n$ 个顺序主子式）全大于 $0$。
+	\item $A$ 的各阶主子式大于零。
+\end{enumerate}
+
+1, 2, 3 的等价是显然的，1, 2, 3, 4, 5 的等价是容易证明的。
+
+\begin{proof}[1, 2, 3 $\Longrightarrow$ 4]
+	由于 $A \simeq I_n$ 且 $A \simeq \operatorname{diag} \{ \lambda_1, \cdots, \lambda_n \}$，所以 $I_n \simeq \operatorname{diag} \{ \lambda_1, \cdots, \lambda_n \}$。于是 $\lambda_i > 0$。
+\end{proof}
+
+\begin{proof}[4 $\Longrightarrow$ 2]
+	由于 $A \simeq \operatorname{diag} \{ \lambda_1, \cdots, \lambda_n \}$ 且 $I_n \simeq \operatorname{diag} \{ \lambda_1,  \cdots, \lambda_n \}$，所以 $A \simeq I_n$。
+\end{proof}
+
+\begin{proof}[1, 2, 3, 4 $\Longleftrightarrow$ 5]
+	由 $A \simeq I_n$，可知存在 $n$ 级实可逆矩阵 $C$ 使得 $A = C^T I_n C$，则 $A = C^T C$。反过来，可知 $A$ 合同于 $I_n$。
+\end{proof}
+
+较为麻烦的是对 6 和 7 的证明。注意下面证明过程中用到的技巧。
+
+\begin{proof}[1, 2, 3, 4, 5 $\Longrightarrow$ 6]
+	首先证明正定矩阵的行列式大于 $0$。这是因为：
+	$$
+	|A| = |C^T C| = |C|^2 > 0
+	$$
+
+	于是可知 $A$ 的 $n$ 阶顺序主子式大于零。下面证明对于 $k \in \{ 1, 2, \ldots, n - 1 \}$，$A$ 的 $k$ 阶顺序主子式都大于零。对于一个 $k$，把 $A$ 写成分块矩阵：
+	$$
+	A =
+	\begin{bmatrix} A_k & B_1 \\ B_1^T & B_2 \end{bmatrix}
+	$$
+	其中 $|A_k|$ 即为 $A$ 的 $k$ 阶顺序主子式。下面证明 $A_k$ 是正定的，从而由正定矩阵的行列式大于 $0$ 可知 $A$ 的 $k$ 阶主子式大于零。
+
+	利用分块矩阵。在 $\R^k$ 中任取一个非零列向量 $\vec X_k$，有：
+	$$
+	\begin{bmatrix} \vec X_k \\ \vec 0 \end{bmatrix}^T
+	A
+	\begin{bmatrix} \vec X_k \\ \vec 0 \end{bmatrix}
+	=
+	\vec X_k^T A_k \vec X_k
+	$$
+	由于 $A$ 是正定矩阵，所以左式大于零，从而右式大于 $0$，从而 $A_k$ 是正定矩阵，因此 $|A_k| > 0$。故 $A$ 的 $k$ 阶顺序主子式都大于零。
+\end{proof}
+
+\begin{proof}[6 $\Longrightarrow$ 2]
+	考虑 $n = 2$ 的情况。设 $A = \begin{bmatrix} a_{11} & a_{12} \\ a_{12} & a_{22} \end{bmatrix}$，对它进行成对初等行、列变换，有：
+	$$
+	\begin{bmatrix} a_{11} & a_{12} \\ a_{12} & a_{22} \end{bmatrix}
+	\rightarrow
+	\begin{bmatrix} a_{11} & a_{12} \\ 0 & a_{22} - \frac{a_{12}^2}{a_{11}} \end{bmatrix}
+	\rightarrow
+	\begin{bmatrix} a_{11} & 0 \\ 0 & a_{22} - \frac{a_{12}^2}{a_{11}} \end{bmatrix}
+	$$
+
+	于是原矩阵合同于变换后的矩阵。已知 $a_{11} > 0$，只需证 $a_{22} - \frac{a_{12}^2}{a_{11}} > 0$。已知 $A$ 的行列式大于零，而 $|A| = a_{11} (a_{22} - \frac{a_{12}^2}{a_{11}})$，故 $a_{22} - \frac{a_{12}^2}{a_{11}} > 0$，证毕。
+
+	受 $n = 2$ 的情况的启发，考虑使用数学归纳法。当 $n = 1$ 时，显然 $A$ 正定。当 $n \ge 3$ 时，假设对于 $n - 1$ 级实对称矩阵命题为真，现在来证明 $n$ 级实对称矩阵 $A = (a_{ij})$ 也是正定矩阵。把 $A$ 写成分块矩阵：
+	$$
+	A =
+	\begin{bmatrix} A_{n - 1} & \vec \alpha \\ \vec \alpha^T & a_{nn} \end{bmatrix}
+	$$
+
+	显然 $A_{n - 1}$ 也是实对称矩阵，并且 $A_{n - 1}$ 的所有顺序主子式是 $A$ 的 $1$ 到 $n - 1$ 阶顺序主子式。由已知条件得，它们都大于零，于是据归纳假设得，$A_{n - 1}$ 是正定的，因此有 $n - 1$ 级实可逆矩阵 $C_1$，使得 $C_1^T A_{n - 1} C_1 = I_{n - 1}$。考虑仿照以上过程进行分块成对初等行、列变换：
+	$$
+	\begin{aligned}&
+		\begin{bmatrix} A_{n - 1} & \vec \alpha \\ \vec \alpha^T & a_{nn} \end{bmatrix}
+		\xrightarrow{\text{$\circled 2 + (-\vec \alpha^T A_{n - 1}^{-1}) \circled 1$}}
+		\begin{bmatrix} A_{n - 1} & \vec \alpha \\ \vec 0 & a_{nn} - \vec \alpha^T A_{n - 1}^{-1} \vec \alpha \end{bmatrix}
+		\\&
+		\xrightarrow[\text{$\circled 2 + \circled 1 (-\vec \alpha^T A_{n - 1}^{-1})^T$}]{}
+		\begin{bmatrix} A_{n - 1} & \vec 0 \\ \vec 0 & a_{nn} - \vec \alpha^T A_{n - 1}^{-1} \vec \alpha \end{bmatrix}
+	\end{aligned}
+	$$
+
+	由 $|A| > 0$ 且 $|A_1| > 0$ 知，$a_{nn} - \vec \alpha^T A_{n - 1}^{-1} \vec \alpha > 0$。由于：
+	$$
+	\begin{bmatrix} C_1 & \vec 0 \\ \vec 0 & 1\end{bmatrix}^T
+	\begin{bmatrix} A_{n - 1} & \vec 0 \\ \vec 0 & a_{nn} - \vec \alpha^T A_{n - 1}^{-1} \vec \alpha \end{bmatrix}
+	\begin{bmatrix} C_1 & \vec 0 \\ \vec 0 & 1 \end{bmatrix}
+	=
+	\begin{bmatrix} I_{n - 1} & \vec 0 \\ \vec 0 & a_{nn} - \vec \alpha^T A_{n - 1} ^{-1} \vec \alpha \end{bmatrix}
+	$$
+	得到了一个正定矩阵，所以 $A$ 合同于一个正定矩阵，从而 $A$ 也是一个正定矩阵。
+\end{proof}
+
+7 到 6 的证明是显然的。
+
+\begin{proof}[5 $\Longrightarrow$ 7]
+	设 $A$ 是 $n$ 级正定矩阵，则有实可逆矩阵 $C$ 使得 $A = C^T C$，从而由比内柯西公式可知 $A$ 的任一 $m$ 阶主子式（$1 \le m \le n$）为：
+	$$
+	\begin{aligned}
+		A \begin{pmatrix} i_1, \ldots, i_m \\ i_1, \ldots, i_m \end{pmatrix}   &= (C^T C) \begin{pmatrix} i_1, \ldots, i_m \\ i_1, \ldots, i_m \end{pmatrix}
+		\\&=
+		\sum\limits_{1 \le v_1 < \cdots < v_m \le n} C^T \begin{pmatrix} i_1, \ldots, i_m \\ v_1, \ldots, v_m \end{pmatrix} C \begin{pmatrix} v_1, \ldots, v_m \\ i_1, \ldots, i_m \end{pmatrix}
+		\\&=
+		\sum\limits_{1 \le v_1 < \cdots < v_m \le n} \left( C \begin{pmatrix} v_1, \ldots, v_m \\ i_1, \ldots, i_m \end{pmatrix} \right)^2
+	\end{aligned}
+	$$
+
+	只需证明 $C$ 的第 $i_1, \ldots, i_m$ 列组成的子矩阵 $C_1$ 存在一个 $m$ 阶子式非零。由于 $C$ 满秩，所以 $C_1$ 满秩，因此 $C_1$ 一定存在一个非零 $m$ 阶子式，则 $A$ 的任一 $m$ 阶主子式不为零。
+\end{proof}
+
+% TODO: 补充例题。
