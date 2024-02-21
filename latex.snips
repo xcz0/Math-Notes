@@ -83,6 +83,8 @@
     // subscript
     {trigger: "_", replacement: "_{$0}$1", options: "mA"},
     {trigger: "nn", replacement: "_n", options: "mA"},
+    {trigger: "mm", replacement: "_m", options: "mA"},
+    {trigger: "ss", replacement: "_s", options: "mA"},
     {trigger: "kk", replacement: "_k", options: "mA"},
     {trigger: "ii", replacement: "_i", options: "mA"},
     {trigger: "jj", replacement: "_j", options: "mA"},
