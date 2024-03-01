@@ -1,1 +1,2 @@
-Cau
+# Cauchy 序列
+
