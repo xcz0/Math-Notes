@@ -4,4 +4,15 @@
 
 ## 样本模型
 
-设样本有 $d$ 个特征，则假设类条件概率为各特征
+设样本有 $d$ 个特征，则假设类条件概率为各特征条件概率之积：
+$$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{i=1}^d p(x_{i}|y=c,\boldsymbol{\theta}) $$
+
+此时，对于离散属性，则用其频率估计概率：
+$$ p(x_{i}|y=c)=\frac{|D_{c,x_i}|}{D_{c}} $$
+
+对于连续属性，则假设其服从正太分布：
+$$ p(x_{i}|y=c,\boldsymbol{\theta})=N(x_{i}|\mu_{c,i},\sigma^2_{c,i})$$
+
+
+## 模型修正
+
