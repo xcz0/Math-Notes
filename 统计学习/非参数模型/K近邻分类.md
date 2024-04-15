@@ -13,8 +13,11 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 
 ## 分类决策规则
 
-一般情况下，选用多数表决规则 (majority voting rule)，模型可记为：
+自然的想法时，选用 $N_k(\mathbf{x},\mathcal{D})$ 中最duo 多数表决规则 (majority voting rule)，即由输入实例的 $K$ 个邻近的训练实例中的多数类决定输入实例的类。模型可记为：
 $$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\mathcal{D})}\mathbb{I}\left(y_n=c\right) $$
+
+
+
 ### K 值的选择
 
 当 K=1 时，
