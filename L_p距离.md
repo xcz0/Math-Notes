@@ -15,4 +15,7 @@ $$L_2(x_i,x_j)=\left(\sum_{l=1}^n|x_i^{(l)}-x_j^{(l)}|^2\right)^{\frac12}$$
 当 $p=1$ 时，称为曼哈顿距离 (Manhattan distance)，即
 $$L_1(x_i,x_j)=\sum_{l=1}^n|x_i^{(l)}-x_j^{(l)}|$$
 
-当 $p=1$ 时，它是各个坐标距离的最大值，即
+## 最大距离
+
+当 $p=\infty$ 时，它是各个坐标距离的最大值，即
+$$L_\infty(x_i,x_j)=\max_l|x_i^{(l)}-x_j^{(l)}|$$

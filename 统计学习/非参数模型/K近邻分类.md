@@ -11,8 +11,14 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 + [[L_p距离]]
 + [[Mahalanobis距离]]
 
+## 分类决策规则
 
+一般情况下，选用多数表决规则 (majority voting rule)，模型可记为：
+$$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\mathcal{D})}\mathbb{I}\left(y_n=c\right) $$
 ### K 值的选择
+
+当 K=1 时，
+
 
 如果选择较小的$K$值，就相当于用较小的邻域中的训练实例进行预测，“学习”的近似误差(approximation error)会减小，只有与输入实例较近的（相似的）训练实例才会对预测结果起作用。但缺点是“学习”的估计误差(estimation error)会增大，预测结果会对近邻的实例点非常敏感。如果邻近的实例点恰巧是噪声，预测就会出错。换句话说，$k$ 值的减小就意味着整体模型变得复杂，容易发生过拟合。
 
@@ -22,7 +28,4 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 
 在应用中，$K$ 值一般取一个比较小的数值。通常采用交叉验证法来选取最优的 $K$ 值。
 
-## 分类决策规则
 
-一般情况下，选用多数表决规则 (maj ority voting rule)，模型可记为：
-$$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\mathcal{D})}\mathbb{I}\left(y_n=c\right) $$
