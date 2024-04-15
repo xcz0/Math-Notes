@@ -17,7 +17,7 @@ k 近邻法中，当训练集、距离度量（如欧氏距离）、 K 值及分
 >[!note] $L_{p}$ 距离
 >设特征空间 X 是 n 维实数向量空间 R气 Xi,Xj EX, Xi= (x?),x?), · · ·,xin) 汀Xj = (x尸， XJ2), · · ·, X尸平， Xi, Xj 的 Lp 距离定义为
 > $$ L_{p}(x_{i},x_{j})=\left( \sum_{l=1}^{n} \mid x_{i}^{(l)}- x_{j}^{(l)}\mid^p\right)^{\frac{1}{p}} $$
-> ![[Pasted image 20230219155936.png]]
+> ![[Lp距离.png]]
 
 ### k 值的选择
 
