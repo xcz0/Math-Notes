@@ -5,4 +5,4 @@ $$ d_\mathbf{M}(\boldsymbol{x},\boldsymbol{\mu})=\sqrt{(\boldsymbol{x}-\boldsymb
 
 其中 $\mathbf{M}$ 是一个正定矩阵。
 
-当 $\mathbf{M}$ 为单位矩阵时，此即退化为 [[L_p距离#Euclidean距离]] 。
+当 $\mathbf{M}$ 为单位矩阵时，此即退化为 [[Minkowski距离#Euclidean距离]] 。

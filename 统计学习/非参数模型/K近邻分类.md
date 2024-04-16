@@ -8,7 +8,7 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 ### 距离度量
 
 常用距离度量方法有：
-+ [[L_p距离]]
++ [[Minkowski距离]]
 + [[Mahalanobis距离]]
 
 ## 分类决策规则
@@ -16,7 +16,7 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 一种自然的想法，选用 $N_k(\mathbf{x},\mathcal{D})$ 中最多的标签类别作为输入实例的类，即多数表决规则 (majority voting rule)。模型可记为：
 $$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\mathcal{D})}\mathbb{I}\left(y_n=c\right) $$
 
-
+>如果出现平局，那么依次剔除距离最远的近邻点，再看能否确定多数标签。
 
 
 ### K 值的选择
