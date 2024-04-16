@@ -10,4 +10,4 @@ $$ d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=\sqrt{(\boldsymbol{x}-\boldsymbol
 
 当 $L$ 为恒等变换，即 $\mathbf{M}$ 为单位矩阵时，此即退化为 [[Minkowski距离#Euclidean距离]] 。
 
-由于当 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=0$ 时zhi'd
+由于当 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=0$ 时只能推出 $L(\boldsymbol{x}-\boldsymbol{y})=0$，并不能推出 $\boldsymbol{x}-\boldsymbol{y}=0$，所以这是一种[[伪度量]]

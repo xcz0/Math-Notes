@@ -7,8 +7,7 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 
 ### 距离度量
 
-过去常用 [[Minkowski距离]]度量，而现在一般使用学习后的度量[[度量学习]]，参考 [Distance Metric Learning for Large Margin Nearest Neighbor Classification]([Distance Metric Learning for Large Margin Nearest Neighbor Classification | The Journal of Machine Learning Research (acm.org)](https://dl.acm.org/doi/10.5555/1577069.1577078))
-+ [[Mahalanobis距离]]
+过去常用 [[Minkowski距离]]度量，而现在一般使用学习后的度量[[度量学习]]，参考 [Distance Metric Learning for Large Margin Nearest Neighbor Classification]([Distance Metric Learning for Large Margin Nearest Neighbor Classification | The Journal of Machine Learning Research (acm.org)](https://dl.acm.org/doi/10.5555/1577069.1577078))与[FaceNet: A Unified Embedding for Face Recognition and Clustering](https://arxiv.org/abs/1503.03832)
 
 ## 分类决策规则
 
