@@ -5,7 +5,7 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 当训练集、距离度量、 K 值及分类决策规则确定后，对于任何一个新的输入实例，它所属的类唯一确定。这相当于根据上述要素将特征空间划分为一些子空间，确定子空间里的每个点所属的类。
 ![[Pasted image 20230219154926.png]]
 
-### 距离度量
+## 距离度量
 
 过去常用 [[Minkowski距离]]度量，而现在一般使用学习后的度量[[度量学习]]，参考 [Distance Metric Learning for Large Margin Nearest Neighbor Classification]([Distance Metric Learning for Large Margin Nearest Neighbor Classification | The Journal of Machine Learning Research (acm.org)](https://dl.acm.org/doi/10.5555/1577069.1577078))与[FaceNet: A Unified Embedding for Face Recognition and Clustering](https://arxiv.org/abs/1503.03832)
 
@@ -17,7 +17,7 @@ $$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\m
 >如果出现平局，那么依次剔除距离最远的近邻点，再看能否确定多数标签。
 
 
-### K 值的选择
+## K 值的选择
 
 当 $K=1$ 时，即返回最近的训练样本类别，此时样本空间被划分为Voronoi镶嵌(Voronoi tessellation)：每个样本点 $\mathbf{x}_n$ 对应着一个区域 $V(\mathbf{x}_n)$，此区域内的任意点与 $\mathbf{x}_n$ 的距离都比与其他样本点的更小，此区域也称为单元(cell)。此时训练集中的各样本点都将被分类为其本身的类，故训练误差为零。
 
