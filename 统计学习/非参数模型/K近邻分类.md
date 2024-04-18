@@ -16,7 +16,6 @@ $$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\m
 
 >如果出现平局，那么依次剔除距离最远的近邻点，再看能否确定多数标签。
 
-
 ## K 值的选择
 
 当 $K=1$ 时，即返回最近的训练样本类别，此时样本空间被划分为Voronoi镶嵌(Voronoi tessellation)：每个样本点 $\mathbf{x}_n$ 对应着一个区域 $V(\mathbf{x}_n)$，此区域内的任意点与 $\mathbf{x}_n$ 的距离都比与其他样本点的更小，此区域也称为单元(cell)。此时训练集中的各样本点都将被分类为其本身的类，故训练误差为零。
@@ -28,6 +27,15 @@ $$ p(y=c|\boldsymbol{x},\mathcal{D})=\frac{1}{K}\sum_{n\in N_K(\boldsymbol{x},\m
 如果$k = N$，那么无论输入实例是什么，都将简单地预测它属于在训练实例中最多的类。这时，模型过于简单，完全忽略训练实例中的大量有用信息，是不可取的。
 
 在应用中，$K$ 值一般取一个比较小的数值。通常采用交叉验证法来选取最优的 $K$ 值。
+
+## 1-NN的误差上界
+
+考虑当 $k=1$ 时的情况。假设对于测试点 $\mathbf{x}_{t}$ 而言，其最近邻点记为 $\mathbf{x}_0$ 。并且假设随着训练集大小 $n$ 趋于无穷，两者间的距离趋于 $0$： $\lim_{ n \to \infty } d(\mathbf{x}_{t},\mathbf{x}_{0})=0$。此时对于 $\mathbf{x}_{t}$ 的预测标签即为 $\mathbf{x}_0$ 的标签。那么有两种错误情况：$\mathbf{x}_{t}$ 的实际标签为 $y^*$，但 $\mathbf{x}_0$ 的标签不是；$\mathbf{x}_0$ 的标签为 $y^*$，但 $\mathbf{x}_{t}$ 的实际标签不是。即误差概率为
+$$ \epsilon=P(y^*|\mathbf{x}_t)[1-P(y^*|\mathbf{x}_0)]+P(y^*|\mathbf{x}_0)[1-P(y^*|\mathbf{x}_t)] $$
+
+假设 $\mathbf{x}_{t}$ 与 $\mathbf{x}_0$ 足够接近，以至于 $P(y^*|\mathbf{x}_t)=P(y^*|\mathbf{x}_0)$，可以得到
+$$ \epsilon < [1-P(y^*|\mathbf{x}_0)]+[1-P(y^*|\mathbf{x}_t)]=2[1-P(y^*|\mathbf{x}_t)] $$
+这仅仅是 [[Bayes最优分类器]]误差的两倍。
 
 ## 维数灾难
 
