@@ -4,11 +4,9 @@
 
 ## 朴素贝叶斯模型
 
-设输入空间 $\mathcal{X} \subseteq \mathbb{R}^n$ 为 $n$ 维向量的集合，输出空间为类标记(class label)集合 $\mathcal{y} =\{ c_{1},\cdots,c_{K} \}$。输入为特征向量 $x \in \mathcal{X}$，输出为类标记 $y \in \mathcal{Y}$。$X$ 是定义在输入空间 $\mathcal{X}$ 上的随机向量，$Y$ 是定义在输出空间 $\mathcal{Y}$ 上的随机变量。$P(X,Y)$ 是 $X$ 和 $Y$ 的联合概率分布。训练数据集
+设输入空间 $\mathcal{X} \subseteq \mathbb{R}^n$ 为 $n$ 维向量的集合，输出空间为类标记集合 $\mathcal{y} =\{ c_{1},\cdots,c_{K} \}$。输入为特征向量 $x \in \mathcal{X}$，输出为类标记 $y \in \mathcal{Y}$。$X$ 是定义在输入空间 $\mathcal{X}$ 上的随机向量，$Y$ 是定义在输出空间 $\mathcal{Y}$ 上的随机变量。$P(X,Y)$ 是 $X$ 和 $Y$ 的联合概率分布。训练数据集
 $$ T=\{ (x_{1},y_{1}),\cdots , (x_{N},y_{N})\} $$
-由 $P(X,Y)$ 独立同分布产生。
-
-## 样本模型
+由 $P(X,Y)$ *独立同分布*产生。
 
 设样本有 $d$ 个特征，则假设类条件概率为各特征条件概率之积：
 $$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{i=1}^d p(x_{i}|y=c,\boldsymbol{\theta}) $$
