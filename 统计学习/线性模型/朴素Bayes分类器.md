@@ -44,6 +44,6 @@ $$ \begin{align}
 \sigma^2_{c,i}&=s^2_{c}=\frac{1}{|D_c|-1} \sum_{x \in D_c} (x-\overline{x_{c}})^2
 \end{align} $$
 
-## 模型修正
+
 
 
