@@ -4,13 +4,33 @@
 
 ## 朴素Bayes假设
 
-假设在已知类标签各特征条件概率：
+假设在已知类标签的情况下，各特征条件概率独立：
 $$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{i=1}^d p(x_{i}|y=c,\boldsymbol{\theta}) $$
 
-此时，对于离散属性，则用其频率估计概率：
+接下来一般使用 [[Bayes分类器]]得出结果：
+$$ 
+\begin{aligned}
+h(\mathbf{x})& =\underset{y}{\operatorname*{\operatorname*{\operatorname*{argmax}}}}P(y|\mathbf{x})  \\
+&=\underset{y}{\operatorname*{\mathrm{argmax~}}}\frac{P(\mathbf{x}|y)P(y)}{P(\mathbf{x})} \\
+&=\underset{y}{\operatorname*{\operatorname*{\mathrm{argmax}}}}P(\mathbf{x}|y)P(y) \\
+&=\underset{y}{\operatorname*{argmax}}\prod_{i=1}^dP(x_i|y)P(y) \\
+&=\underset{y}{\operatorname*{\mathrm{argmax~}}}\sum_{i=1}^d\log(P(x_i|y))+\log(P(y))
+\end{aligned} 
+$$
+
+## 后验概率的估计
+
+### 类别属性
+
+
+
+### 离散属性
+
+对于离散属性，则用其频率估计概率：
 $$ p(x_{i}|y=c)=\frac{|D_{c,x_i}|}{|D_{c}|} $$
 $D_c$表示类别为$c$ 的样本集； $D_{c,x_i}$ 表示 $D_c$ 中在第 $i$ 个属性上取值为 $x_i$ 的样本集。
 
+### 连续属性
 
 对于连续属性，则假设其服从正态分布：
 $$ p(x_{i}|y=c,\boldsymbol{\theta})=N(x_{i}|\mu_{c,i},\sigma^2_{c,i})$$
