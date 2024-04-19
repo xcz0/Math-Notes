@@ -5,6 +5,9 @@ K 近邻法 (K nearest neighbor, KNN) 是一种[[非参数方法#基于实例模
 当训练集、距离度量、 K 值及分类决策规则确定后，对于任何一个新的输入实例，它所属的类唯一确定。这相当于根据上述要素将特征空间划分为一些子空间，确定子空间里的每个点所属的类。
 ![[Pasted image 20230219154926.png]]
 
+
++ *优点*：可以学习非线性边界、能够自然地处理多分类任务
++ *缺点*：不适用于维数过高的情况、占用内存大（需要储存所有训练数据）、
 ## 距离度量
 
 过去常用 [[Minkowski距离]]度量，而现在一般使用学习后的度量[[度量学习]]，参考 [Distance Metric Learning for Large Margin Nearest Neighbor Classification]([Distance Metric Learning for Large Margin Nearest Neighbor Classification | The Journal of Machine Learning Research (acm.org)](https://dl.acm.org/doi/10.5555/1577069.1577078))与[FaceNet: A Unified Embedding for Face Recognition and Clustering](https://arxiv.org/abs/1503.03832)
