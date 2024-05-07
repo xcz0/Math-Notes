@@ -5,7 +5,12 @@
 ## 朴素Bayes假设
 
 假设在已知类标签的情况下，各特征条件概率独立：
-$$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{i=1}^d p(x_{i}|y=c,\boldsymbol{\theta}) $$
+$$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{d=1}^D p(x_d|y=c,\boldsymbol{\theta}_{dc}) $$
+其中 $\boldsymbol{\theta}_{dc}$ 代表基于类别 $c$ 的特征 $d$ 的条件密度参数。代入Bayes公式可得：
+$$p(y=c|\boldsymbol{x},\boldsymbol{\theta})=\frac{p(\boldsymbol{x}|y=c,\boldsymbol{\theta}) p(y=c|\boldsymbol{\theta})}{p(\boldsymbol{x}|y=c,\boldsymbol{\theta}) p(y=c|\boldsymbol{\theta})}=
+
+
+\frac{p(y=c|\boldsymbol{\pi})\prod_{d=1}^Dp(x_d|y=c,\boldsymbol{\theta}_{dc})}{\sum_{c'}p(y=c'|\boldsymbol{\pi})\prod_{d=1}^Dp(x_d|y=c',\boldsymbol{\theta}_{dc'})}$$
 
 接下来一般使用 [[Bayes分类器]]得出结果：
 $$ 
