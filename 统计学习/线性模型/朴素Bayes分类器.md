@@ -1,16 +1,19 @@
 # 朴素Bayes分类器
 
-**朴素Bayes分类器**(naive Bayes classifier, NBC)是一种[[生成分类器]]。由于估计类条件概率 $p(\boldsymbol{x}|y=c,\boldsymbol{\theta})$ 的难度在于特征之间存在关联，特征空间往往远大于样本数。故考虑特征之间相互独立的情况，采用**属性条件独立性假设**(attribute conditional i时ependence assu'mption)，减小特征空间。
+**朴素Bayes分类器**(naive Bayes classifier, NBC)是一种[[生成分类器]]。由于估计类条件概率 $p(\mathbf{x}|y=c,\mathbf{\theta})$ 的难度在于特征之间存在关联，特征空间往往远大于样本数。故考虑特征之间相互独立的情况，采用**属性条件独立性假设**(attribute conditional i时ependence assu'mption)，减小特征空间。
 
 ## 朴素Bayes假设
 
 假设在已知类标签的情况下，各特征条件概率独立：
-$$ p(\boldsymbol{x}|y=c,\boldsymbol{\theta})=\prod_{d=1}^D p(x_d|y=c,\boldsymbol{\theta}_{dc}) $$
-其中 $\boldsymbol{\theta}_{dc}$ 代表基于类别 $c$ 的特征 $d$ 的条件密度参数。代入Bayes公式可得：
-$$p(y=c|\boldsymbol{x},\boldsymbol{\theta})=\frac{p(\boldsymbol{x}|y=c,\boldsymbol{\theta}) p(y=c|\boldsymbol{\theta})}{p(\boldsymbol{x}|y=c,\boldsymbol{\theta}) p(y=c|\boldsymbol{\theta})}=
+$$ p(\mathbf{x}|y=c,\mathbf{\theta})=\prod_{d=1}^D p(x_d|y=c,\mathbf{\theta}_{dc}) $$
+其中 $\mathbf{\theta}_{dc}$ 代表基于类别 $c$ 的特征 $d$ 的条件密度参数。代入Bayes公式可得：
+$$p(y=c|\mathbf{x},\mathbf{\theta})
+=\frac{p(y=c|\mathbf{\theta}) p(\mathbf{x}|y=c,\mathbf{\theta})}{\sum_{c'}p(y=c'|\mathbf{\theta}) p(\mathbf{x}|y=c',\mathbf{\theta})}
+=\frac{p(y=c|\mathbf{\pi})\prod_{d=1}^Dp(x_d|y=c,\mathbf{\theta}_{dc})}{\sum_{c'}p(y=c'|\mathbf{\pi})\prod_{d=1}^Dp(x_d|y=c',\mathbf{\theta}_{dc'})}$$
+其中 $\pi_{c}=p(y=c|\mathbf{\pi})$ 为类别 $c$ 的先验概率。
 
+## 参数估计
 
-\frac{p(y=c|\boldsymbol{\pi})\prod_{d=1}^Dp(x_d|y=c,\boldsymbol{\theta}_{dc})}{\sum_{c'}p(y=c'|\boldsymbol{\pi})\prod_{d=1}^Dp(x_d|y=c',\boldsymbol{\theta}_{dc'})}$$
 
 接下来一般使用 [[Bayes分类器]]得出结果：
 $$ 
@@ -23,7 +26,7 @@ h(\mathbf{x})& =\underset{y}{\operatorname*{\operatorname*{\operatorname*{argmax
 \end{aligned} 
 $$
 
-## 参数估计
+
 
 ### 类别特征
 
@@ -42,7 +45,7 @@ $$ \hat{P}(x_i\mid c) =\frac{|D_{c,x_i}|+l}{|D_c|+lN_i}  $$
 ### 连续特征
 
 对于连续属性，则假设其服从[[正态分布]]：
-$$ p(x_{i}|y=c,\boldsymbol{\theta})=N(x_{i}|\mu_{c,i},\sigma^2_{c,i})$$
+$$ p(x_{i}|y=c,\mathbf{\theta})=N(x_{i}|\mu_{c,i},\sigma^2_{c,i})$$
 此时，参数估计方式与一般的正态分布参数估计方式一样：
 $$ \begin{align}
 \mu_{c,i}&=\overline{x_{c}}=\frac{1}{|D_c|} \sum_{x \in D_c} x \\
