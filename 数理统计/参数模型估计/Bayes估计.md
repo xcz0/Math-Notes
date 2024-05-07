@@ -8,7 +8,7 @@ $$ R(\pi;T) = \int E_\theta[T-g(\theta)]^2 \pi(\theta) \, d\theta = E[T(X)-g(\ov
 $$ T(x)=E(g(\overline{\Theta}) |X=x)=\int g(\theta) p_{\overline{\Theta} | X=x}(\theta) d \theta=\frac{\int g(\theta)p_\theta(x) \pi(\theta) d \theta}{\int p_{\vartheta}(x) \pi(\vartheta) d \vartheta} $$
 称之为**贝叶斯估计**, 记为 $\hat{\theta}_B$。
 
-
+证明：
 $$ R(\pi;T) =E[T(X)-g(\overline{\Theta})]^2=E\{ E[(T(x)-g(\overline{\Theta}))^2 |X ] \}  $$
 当 $T(x)=E(g(\overline{\Theta}) |X=x)$ 时，$x$ 取任意值
 $$ E[(T(x)-g(\overline{\Theta}))^2 |X=x ]$$

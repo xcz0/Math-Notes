@@ -26,8 +26,16 @@ $$
 $$
 称此为后验概率最大化准则。
 
-
-
+使用指示函数作为损失函数，即 $L(Y,f(X))=\mathbb{I}(Y \neq f(X))$ 时，考虑其期望风险：
+$$ E[L(Y,f(X))]=E_{X}\{ E[L(Y,f(X))|X] \}=E_X\sum_{k=1}^K L(c_k,f(X))P(c_k|X) $$
+为了使期望风险最小化，只需对 $X = x$ 逐个极小化，由此得到 ：
+$$\begin{aligned}
+f(x) &=\arg\min_{y\in\mathcal{Y}}\sum_{k=1}^{K}L(c_{k},y)P(c_{k}|X=x) \\
+&=\arg\min_{y\in\mathcal{Y}}\sum_{k=1}^KP(y\neq c_k|X=x) \\
+&=\arg\min_{y\in\mathcal{Y}}(1-P(y=c_{k}|X=x)) \\
+&=\arg\max_{y\in\mathcal{Y}}P(y=c_{k}|X=x) 
+\end{aligned}$$
+此即后验概率最大化
 ## 参数估计
 
 
