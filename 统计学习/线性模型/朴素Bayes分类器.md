@@ -12,10 +12,24 @@ $$p(y=c|\mathbf{x},\mathbf{\theta})
 =\frac{p(y=c|\mathbf{\pi})\prod_{d=1}^Dp(x_d|y=c,\mathbf{\theta}_{dc})}{\sum_{c'}p(y=c'|\mathbf{\pi})\prod_{d=1}^Dp(x_d|y=c',\mathbf{\theta}_{dc'})}$$
 其中 $\pi_{c}=p(y=c|\mathbf{\pi})$ 为类别 $c$ 的先验概率。
 
+## 分类准则
+
+将测试点代入模型，取后验概率最大的类作为其类别：
+$$ 
+\begin{aligned}
+\hat{y}=h(\mathbf{x})& =\underset{y}{\operatorname*{\operatorname*{\operatorname*{argmax}}}}P(y|\mathbf{x})  \\
+&=\underset{y}{\operatorname*{\mathrm{argmax~}}}\frac{P(\mathbf{x}|y)P(y)}{P(\mathbf{x})} \\
+&=\underset{y}{\operatorname*{\operatorname*{\mathrm{argmax}}}}P(\mathbf{x}|y)P(y) \\
+&=\underset{y}{\operatorname*{argmax}}\prod_{i=1}^dP(x_i|y)P(y) \\
+&=\underset{y}{\operatorname*{\mathrm{argmax~}}}\sum_{i=1}^d\log(P(x_i|y))+\log(P(y))
+\end{aligned} 
+$$
+称此为后验概率最大化准则。
+
+
+
 ## 参数估计
 
-
-接下来使用 [[Bayes分类器]]得出结果：
 
 ### 类别特征
 
