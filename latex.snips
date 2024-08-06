@@ -97,6 +97,7 @@
 
     {trigger: "sq", replacement: "\\sqrt{ $0 }$1", options: "mA"},
     {trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA"},
+    {trigger: "1n", replacement: "\\frac1n", options: "mA"},
     
     
     
