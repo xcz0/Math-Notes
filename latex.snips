@@ -181,6 +181,8 @@
     {trigger: "!=", replacement: "\\neq", options: "mA"},
     {trigger: ">=", replacement: "\\geq", options: "mA"},
     {trigger: "<=", replacement: "\\leq", options: "mA"},
+    {trigger: "\\geq=", replacement: "\\succeq", options: "mA"},
+    {trigger: "\\leq=", replacement: "\\preceq", options: "mA"},
     {trigger: ">>", replacement: "\\gg", options: "mA"},
     {trigger: "<<", replacement: "\\ll", options: "mA"},
     {trigger: "~~", replacement: "\\sim", options: "mA"},
