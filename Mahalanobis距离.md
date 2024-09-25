@@ -10,7 +10,8 @@ $$ d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=\sqrt{(\boldsymbol{x}-\boldsymbol
 
 当 $L$ 为恒等变换，即 $\mathbf{M}$ 为单位矩阵时，此即退化为 [[Minkowski距离#Euclidean距离]] 。
 
-当 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=0$ 时，推出 $L(\boldsymbol{x}-\boldsymbol{y})=0$，若 $L$ 为可逆线性映射，则 $\boldsymbol{x}=\boldsymbol{y}$，否者不能推出 $\boldsymbol{x}-\boldsymbol{y}=0$，所以这是一种[[伪度量]]。
+当 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=0$ 时，推出 $L(\boldsymbol{x}-\boldsymbol{y})=0$，若 $L$ 为可逆线性映射，则 $\boldsymbol{x}=\boldsymbol{y}$，满足[[度量]]的性质；否则为[[伪度量]]。
 
->对于[[多元正态分布]]，其概率密度函数随 $y$ 与 $\mu$ 之间的Mahalanobis距离呈指数衰减。
+>对于[[多元正态分布]]，其概率密度函数可完全由 $y$ 与 $\mu$ 之间的Mahalanobis距离表示。
 
+对 $M$ 做[[谱分解]]：$M=\sum_{i=1}^{n}\lambda _i u_i u_i^\mathsf{T}$，则 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=$
