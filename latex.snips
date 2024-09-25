@@ -76,7 +76,7 @@
     {trigger: "rd", replacement: "^{$0}$1", options: "mA"},
     {trigger: "conj", replacement: "^{*}", options: "mA"},
     {trigger: "inv", replacement: "^{-1}", options: "mA"},
-    {trigger: "trans", replacement: "^\mathsf{T}", options: "mA"},
+    {trigger: "trans", replacement: "^\\mathsf{T}", options: "mA"},
     {trigger: "cp", replacement: "^{\\complement}", options: "mA"},
     {trigger: "ee", replacement: "e^{ $0 }$1", options: "mA"},
 
