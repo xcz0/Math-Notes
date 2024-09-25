@@ -14,4 +14,6 @@ $$ d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=\sqrt{(\boldsymbol{x}-\boldsymbol
 
 >对于[[多元正态分布]]，其概率密度函数可完全由 $y$ 与 $\mu$ 之间的Mahalanobis距离表示。
 
-对 $M$ 做[[谱分解]]：$M=\sum_{i=1}^{n}\lambda _i u_i u_i^\mathsf{T}$，则 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})=$
+对 $M$ 做[[谱分解]]：$M=\sum_{i=1}^{n}\lambda _i u_i u_i^\mathsf{T}$，则 
+$$d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})^2=\sum_{i=1}^{n}\lambda_i [u_i^\mathsf{T}(\boldsymbol{x}-\boldsymbol{y})]^\mathsf{T} [u_i^\mathsf{T}(\boldsymbol{x}-\boldsymbol{y})]$$
+令 $z_i=[u_i^\mathsf{T}(\boldsymbol{x}-\boldsymbol{y})]$，即 $d_\mathbf{M}(\boldsymbol{x},\boldsymbol{y})^2=\sum_{i=1}^{n}\lambda_i z_i^2$，其等高线为椭圆。
