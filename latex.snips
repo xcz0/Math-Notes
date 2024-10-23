@@ -143,7 +143,7 @@
     // Symbols
     {trigger: "oo", replacement: "\\infty", options: "mA"},
     {trigger: "sum", replacement: "\\sum_{${0:i=1}}^{${1:n}}$2", options: "mA"},
-    {trigger: "prod", replacement: "\\prod", options: "mA"},
+    {trigger: "prod", replacement: "\\prod_{${0:i=1}}^{${1:n}}$2", options: "mA"},
     {trigger: "lim", replacement: "\\lim_{ ${0:n} \\to ${1:\\infty} } $2", options: "mA"},
     {trigger: "pm", replacement: "\\pm", options: "m"},
     {trigger: "mp", replacement: "\\mp", options: "m"},
