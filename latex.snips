@@ -153,6 +153,7 @@
     {trigger: "up", replacement: "\\uparrow", options: "mA"},
     {trigger: "down", replacement: "\\downarrow", options: "mA"},
     {trigger: "!>", replacement: "\\mapsto", options: "mA"},
+    {trigger: "st", replacement: "\\quad\\mathrm{s.t.}\\quad", options: "mA"},
     
     {trigger: "s-", replacement: "\\setminus", options: "mA"},
    // {trigger: "||", replacement: "\\mid", options: "mA"},
