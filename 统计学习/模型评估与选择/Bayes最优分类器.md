@@ -43,4 +43,10 @@ $$\ell(y^*,a) = \begin{bmatrix}
 \end{bmatrix}$$
 其中 $\lambda_r$ 代表拒绝回答的损失，为 $C \times 1$ 的列向量，$\lambda_e$ 为误分类损失，为 $C$ 阶方阵。
 
-若拒绝损失皆相同，即 $\mathbf{\lambda_r}= \lambda_r \cdot \mathbf{1}$，且误分类损失为01损失，即 $\lambda_{e}=\lambda_e \cdot \mathbf{I}-\lambda_e \cdot \mathbf{E}$
+若拒绝损失皆相同，即 $\mathbf{\lambda_r}= \lambda_r \cdot \mathbf{1}$，且误分类损失为01损失，即 $\lambda_{e}=\lambda_e \cdot \mathbf{I}-\lambda_e \cdot \mathbf{E}$，
+则后验期望损失为：
+$$ \rho(\hat{y}|\mathcal{D})=\ell(y^*,\hat{y})^\mathsf{T} p(y|\mathcal{D})=\begin{bmatrix} 
+\lambda_r   \\
+\lambda_e \cdot \mathbf{1} - \mathbf{E} \cdot p(y|\mathcal{D})
+\end{bmatrix} $$
+此时，若 $\max p(y|\mathcal{D})>1-\frac{\lambda_r}{\lambda_e}$ 则信息足够，应选择最可能的类别；否则，应拒绝回答。
