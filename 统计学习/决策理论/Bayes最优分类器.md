@@ -1,5 +1,11 @@
 # Bayes最优分类器
 
+在 [[Bayes决策论]]的框架下，将样本的预测类别视为动作，所有类别视为动作空间，考虑分类问题。
+
+
+
+
+
 假设 $P(y|\mathbf{x})$ 是已知的，那么将其中最可能的标签作为预测结果，即
 $$ y^*=h_{opt}(\mathbf{x})=\underset{y}{\operatorname*{argmax}}P(y|\mathbf{x}) $$
 

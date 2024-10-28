@@ -8,3 +8,4 @@ $$ \rho(a|\mathcal{D}) \triangleq \mathbb{E}_{p(h|\mathcal{D})}\left[\ell(h,a)\r
 **最优策略**(optimal policy)定义为风险最小化的的行为，也称为**Bayes估计**或**Bayes决策准则**或**最大期望效用原则**(maximum expected utility principle)：
 $$ \pi^*(\mathcal{D})=\underset{a\in \mathcal{A}}{\arg\min} \rho(a|\mathcal{D}) = \underset{a\in \mathcal{A}}{\arg\max} \mathbb{E}_{p(h|\mathcal{D})}\left[U(h,a)\right] $$
 
+这种决策原则只考虑了损失的期望，称为**风险中立**的(risk neutral)，这种原则将获得50元与有一半概率获得100元视为等同。更加保守的决策将选择前一种方式，称为**风险厌恶**的(risk averse)。
