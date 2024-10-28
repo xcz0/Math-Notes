@@ -37,4 +37,10 @@ $$ \pi(\mathcal{D})=\underset{y\in \mathcal{Y}}{\arg\max} p(y|\mathcal{D}) $$
 
 ## 有拒绝的分类
 
-在信息不足时，可能会拒绝回答分类问题，即此时的动作空间为 $\mathcal{A}=\mathcal{Y} \cup \{ 0 \}$，其中的 $0$ 即代表拒绝回答。
+在信息不足时，可能会拒绝回答分类问题，即此时的动作空间为 $\mathcal{A}=\mathcal{Y} \cup \{ 0 \}$，其中的 $0$ 即代表拒绝回答。此时代价函数矩阵定义为：
+$$\ell(y^*,a) = \begin{bmatrix} 
+\lambda_r  & \lambda_e
+\end{bmatrix}$$
+其中 $\lambda_r$ 代表拒绝回答的损失，为 $C \times 1$ 的列向量，$\lambda_e$ 为误分类损失，为 $C$ 阶方阵。
+
+若拒绝损失皆相同，即 $\mathbf{\lambda_r}= \lambda_r \cdot \mathbf{1}$，且误分类损失为01损失，即 $\lambda_{e}=\lambda_e \cdot \mathbf{I}-\lambda_e \cdot \mathbf{E}$
