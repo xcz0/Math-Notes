@@ -22,4 +22,9 @@ $$\epsilon_{BayesOpt}=1-\mathrm{P}(h_{\mathrm{opt}}(\mathbf{x})|\mathbf{x})=1-\m
 
 ## 代价敏感分类
 
-若
+假设即使选择正确也仍需付出一些代价，其代价函数矩阵（二分类）定义为：
+$$\ell(y^*,\hat{y}) = \begin{bmatrix}\ell_{00}&\ell_{01}\\\ell_{10}&\ell_{11}\end{bmatrix}$$
+其中行向量（即下标的第一个）为同一实际状况。
+
+此时后验期望损失为：
+$$ \rho(\hat{y}|\mathcal{D})=\ell(y^*,\hat{y})^\mathsf{T} p(y|\mathcal{D}) $$
