@@ -21,3 +21,7 @@ $$ \hat{m}=\underset{m\in \mathcal{M}}{\arg\max} p(\mathcal{D}|m) $$
 这称为Bayesian Occam剃刀效应，复杂模型出现的概率低。
 
 模型的复杂度一般使用其自由度衡量，自由度高则代表模型更加复杂。
+
+## 与交叉验证法的联系
+
+#TODO 5.2.4节
