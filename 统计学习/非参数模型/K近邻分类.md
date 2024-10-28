@@ -38,7 +38,7 @@ $$ \epsilon=P(y^*|\mathbf{x}_t)[1-P(y^*|\mathbf{x}_0)]+P(y^*|\mathbf{x}_0)[1-P(y
 
 假设 $\mathbf{x}_{t}$ 与 $\mathbf{x}_0$ 足够接近，以至于 $P(y^*|\mathbf{x}_t)=P(y^*|\mathbf{x}_0)$，可以得到
 $$ \epsilon < [1-P(y^*|\mathbf{x}_0)]+[1-P(y^*|\mathbf{x}_t)]=2[1-P(y^*|\mathbf{x}_t)] $$
-这仅仅是 [[Bayes最优分类器]]误差的两倍。
+这仅仅是 [[Bayes分类]]误差的两倍。
 
 ## 维数灾难
 
