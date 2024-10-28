@@ -22,9 +22,19 @@ $$\epsilon_{BayesOpt}=1-\mathrm{P}(h_{\mathrm{opt}}(\mathbf{x})|\mathbf{x})=1-\m
 
 ## 代价敏感分类
 
-假设即使选择正确也仍需付出一些代价，其代价函数矩阵（二分类）定义为：
-$$\ell(y^*,\hat{y}) = \begin{bmatrix}\ell_{00}&\ell_{01}\\\ell_{10}&\ell_{11}\end{bmatrix}$$
+假设即使选择正确也仍需付出一些代价，其代价函数矩阵定义为：
+$$\ell(y^*,\hat{y}) = \begin{bmatrix} 
+\ell_{00} & \cdots &  \ell_{0C}\\
+ \vdots  & \ddots  & \vdots \\
+\ell_{C0}&\cdots & \ell_{CC}
+\end{bmatrix}$$
 其中行向量（即下标的第一个）为同一实际状况。
 
 此时后验期望损失为：
 $$ \rho(\hat{y}|\mathcal{D})=\ell(y^*,\hat{y})^\mathsf{T} p(y|\mathcal{D}) $$
+最优策略为：
+$$ \pi(\mathcal{D})=\underset{y\in \mathcal{Y}}{\arg\max} p(y|\mathcal{D}) $$
+
+## 有拒绝的分类
+
+在信息不足时，可能会拒绝回答分类问题，即此时的动作空间为 $\mathcal{A}=\mathcal{Y} \cup \{ 0 \}$，其中的 $0$ 即代表拒绝回答。
