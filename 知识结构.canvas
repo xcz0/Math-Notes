@@ -1,0 +1,25 @@
+{
+	"nodes":[
+		{"id":"1ca6fbbd91095315","x":-720,"y":-10,"width":250,"height":60,"type":"text","text":"数学基础"},
+		{"id":"3e5b0c41472e403a","x":-520,"y":-120,"width":250,"height":60,"type":"text","text":"实分析"},
+		{"id":"aa69f0bf793cda43","x":-520,"y":110,"width":250,"height":60,"type":"text","text":"代数"},
+		{"id":"f1cf464d72a8c144","x":-20,"y":-120,"width":250,"height":60,"type":"text","text":"概率论"},
+		{"id":"29ac1f2d51826ed8","x":-20,"y":-10,"width":250,"height":60,"type":"text","text":"数理统计"},
+		{"id":"fcd29d83845d77ad","x":360,"y":-10,"width":250,"height":60,"type":"text","text":"回归分析"},
+		{"id":"af58abd83ad1a34a","x":-20,"y":110,"width":250,"height":60,"type":"text","text":"信息论"},
+		{"id":"e8252ac0edae356a","x":-320,"y":-10,"width":250,"height":60,"type":"text","text":"矩阵"},
+		{"id":"da2fa42a776cea1e","x":-520,"y":-260,"width":250,"height":60,"type":"text","text":"优化"}
+	],
+	"edges":[
+		{"id":"4a4b38a0898bab06","fromNode":"1ca6fbbd91095315","fromSide":"top","toNode":"3e5b0c41472e403a","toSide":"left"},
+		{"id":"d48f4110bf4cafb9","fromNode":"1ca6fbbd91095315","fromSide":"bottom","toNode":"aa69f0bf793cda43","toSide":"left"},
+		{"id":"4626e3d976032637","fromNode":"aa69f0bf793cda43","fromSide":"right","toNode":"e8252ac0edae356a","toSide":"bottom"},
+		{"id":"7ccee31c5c88e29e","fromNode":"e8252ac0edae356a","fromSide":"left","toNode":"3e5b0c41472e403a","toSide":"bottom"},
+		{"id":"5956d821931e51a7","fromNode":"3e5b0c41472e403a","fromSide":"top","toNode":"da2fa42a776cea1e","toSide":"bottom"},
+		{"id":"67df2ace31a8cb49","fromNode":"3e5b0c41472e403a","fromSide":"right","toNode":"f1cf464d72a8c144","toSide":"left"},
+		{"id":"6a85035fc24004c5","fromNode":"f1cf464d72a8c144","fromSide":"bottom","toNode":"29ac1f2d51826ed8","toSide":"top"},
+		{"id":"5bd24a8528a3f79a","fromNode":"e8252ac0edae356a","fromSide":"right","toNode":"29ac1f2d51826ed8","toSide":"left"},
+		{"id":"7cc589e83ffc4085","fromNode":"29ac1f2d51826ed8","fromSide":"right","toNode":"fcd29d83845d77ad","toSide":"left"},
+		{"id":"d43627f1b68866f8","fromNode":"29ac1f2d51826ed8","fromSide":"bottom","toNode":"af58abd83ad1a34a","toSide":"top"}
+	]
+}
