@@ -7,12 +7,16 @@ $$\begin{align}
 \end{align} $$
 
 考虑其中的 $\ln|\mathbf{H}|$，称为Occam因子，代表了模型的复杂度。其中
-$$ \mathbf{H}=\sum_{i=1}^{N}\mathbf{H}_i=\sum_{i=1}^{N} \nabla \nabla \ln p(y_i|\theta) $$
+$\mathbf{H}$ 
 为经验 [[Fisher信息矩阵]]。
 
 
 假设先验概率服从均匀分布，即 $p(\theta)$ 是常数。
 
-定义Bayes信息量准则分数为
-$$ J_{BIC}(m)=\ln p(c) $$
+定义**Bayes信息量准则分数**(BIC score)为
+$$ J_{BIC}(m)= \ln p(\mathcal{D}|\hat{\theta},m)-\frac{D_m}{2} \ln N $$
+其中 $D_m$ 为模型参数的数量，$N$ 为数据集大小。
+
+将其乘以 $-2$ 后得到**Bayes信息量准则损失**(BIC loss)：
+$$ \mathcal{L}_{BIC}(m)=-2\ln p(\mathcal{D}|\hat{\theta},m)+D_m \ln N $$
 
