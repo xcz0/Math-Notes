@@ -6,9 +6,9 @@ $$\begin{align}
 &= -\ln p(\hat{\theta})-\ln p(\mathcal{D}|\hat{\theta})-\frac12 \ln|\mathbf{H}|+ \frac{D}{2} \ln2\pi
 \end{align} $$
 
-考虑其中的 $\ln|\mathbf{H}|$，称为Occam因子，代表了模型的复杂度。其中
-$\mathbf{H}$ 
-为经验 [[Fisher信息矩阵]]。
+考虑其中的 $\ln|\mathbf{H}|$，称为Occam因子，代表了模型的复杂度。其中 $\mathbf{H}(\hat{\theta})$ 为 [[Fisher信息矩阵]]。假设样本独立同分布，
+
+
 
 
 假设先验概率服从均匀分布，即 $p(\theta)$ 是常数。
