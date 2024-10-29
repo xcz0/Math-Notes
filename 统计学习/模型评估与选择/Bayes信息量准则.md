@@ -13,3 +13,6 @@ $$ \mathbf{H}=\sum_{i=1}^{N}\mathbf{H}_i=\sum_{i=1}^{N} \nabla \nabla \ln p(y_i|
 
 假设先验概率服从均匀分布，即 $p(\theta)$ 是常数。
 
+定义Bayes信息量准则分数为
+$$ J_{BIC}(m)=\ln p(c) $$
+
