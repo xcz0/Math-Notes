@@ -48,5 +48,14 @@ $$P(\boldsymbol{w},\sigma^2)=NIG(\boldsymbol{w},\sigma^2|\boldsymbol{w}_0,\Sigma
 
 记 $\beta=\frac{1}{\sigma^{2}}$，故其服从Gamma分布。
 
-设权重各分量的均值皆为0，且相互独立，但不假设其方差相同，即：
-$p(w|\alpha)=N(w|0,diag(\alpha)^{-1}),d=(a_{1},...,a_{d}),(diag(\alpha)=V_{0}^{-1}is$ the precision motrix)
+设权重各分量的均值皆为0，且相互独立，但其方差不同，分别记为 $\alpha _i^{-1}$ 即 $\Sigma_0=\mathrm{diag}(\alpha)^{-1}$，其中 $\alpha=(\alpha_{1},...,\alpha_{d})$。
+故
+$$ \begin{align}
+P(y|X,\alpha,\beta)&=\int N(y|Xw,\beta^{-1}I_{n})N(w|0,diag(\alpha)^{-1})dw\\&=N(y|0,\beta^{-1}I_{n}+Xdiag(\alpha)^{-1}X^{7})
+\end{align} $$
+
+
+$$p(w|\alpha)=N(w|0,diag(\alpha)^{-1}),$$
+
+
+$diag(\alpha)=V_{0}^{-1}$ the precision motrix)
