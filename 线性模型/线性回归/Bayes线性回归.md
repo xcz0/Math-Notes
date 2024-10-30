@@ -13,11 +13,18 @@ $$ \begin{align}
 若再假设其权重*各分量独立同分布*，即 $\omega_0=0,\Sigma_0=\tau^{2}\mathbf{I}_N$，则
 $$ \begin{align}
 \Sigma_N &= \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}  \\
-\boldsymbol{\omega}_N & = \sigma^{-2} \Sigma_N\mathbf{X}^\mathsf{T} \boldsymbol{y} =  \sigma^{-2} \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} = \left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y}
+\boldsymbol{\omega}_N & = \sigma^{-2} \Sigma_N\mathbf{X}^\mathsf{T} \boldsymbol{y} =  \sigma^{-2} \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} = \left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y}
 \end{align} $$
 此时其最大后验估计为：
-$$ \hat{\omega}_{MAP}=\left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} $$
+$$ \hat{\omega}_{MAP}=\left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} $$
 此即[[岭回归]]。
+
+由于 $\mathbf{X}^\mathsf{T} \mathbf{X}$ 是实对称矩阵，故可对其进行正交分解：$\mathbf{X}^\mathsf{T} \mathbf{X}=U \Lambda U^\mathsf{T}$，其中 $U$ 为正交矩阵，$\Lambda$ 为对角矩阵。代入化简以上计算得：
+$$ \begin{align}
+\Sigma_N &= U \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\Lambda  \right)^{-1} U^\mathsf{T}  \\
+\boldsymbol{\omega}_N & = \sigma^{-2} \Sigma_N\mathbf{X}^\mathsf{T} \boldsymbol{y} =  \sigma^{-2} \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} = \left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y}
+\end{align} $$
+
 
 用其对新的数据点进行预测：
 $$\begin{align}
