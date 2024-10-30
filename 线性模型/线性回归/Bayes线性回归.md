@@ -45,12 +45,3 @@ $$ \mathbf{x}_{new}^\mathsf{T}\boldsymbol{\Sigma}_N\mathbf{x}_{new}=\mathbf{x}_{
 假设 $\omega,\sigma^{2}$ 服从正态[[逆Gamma分布]]：
 $$P(\boldsymbol{w},\sigma^2)=NIG(\boldsymbol{w},\sigma^2|\boldsymbol{w}_0,\Sigma_0,a_0,b_0)=N(\boldsymbol{w}|\boldsymbol{w}_0,\sigma^2 \Sigma_0)IG(\sigma^2|a_0,b_0)$$
 其中 $IG(\sigma^2|a_0,b_0) \propto (\sigma^2)^{-a_0-1}e^{-b_0/\sigma^2}$ 。
-
-记 $\beta=\frac{1}{\sigma^{2}}$，故其服从Gamma分布。
-
-设权重各分量的均值皆为0，且相互独立，但其方差不同，分别记为 $\alpha _i^{-1}$ 即 $\Sigma_0=\mathrm{diag}(\alpha)^{-1}$，其中 $\alpha=(\alpha_{1},...,\alpha_{d})$。
-故
-$$ \begin{align}
-P(y|X,\alpha,\beta)&=\int \mathcal{N}(y|Xw,\beta^{-1}I_{n})\mathcal{N}(w|0,\mathrm{diag}(\alpha)^{-1})dw \\
-&=\mathcal{N}(y|0,\beta^{-1}I_{n}+X\mathrm{diag}(\alpha)^{-1}X^\mathsf{T})
-\end{align} $$
