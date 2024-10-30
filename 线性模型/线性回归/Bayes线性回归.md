@@ -42,7 +42,11 @@ $$ \mathbf{x}_{new}^\mathsf{T}\boldsymbol{\Sigma}_N\mathbf{x}_{new}=\mathbf{x}_{
 
 ## 测量误差的估计
 
-假设 $\omega,\sigma^{2}$ 服从[[正态逆Gamma分布]]：
+假设 $\omega,\sigma^{2}$ 服从正态[[逆Gamma分布]]：
 $$P(\boldsymbol{w},\sigma^2)=NIG(\boldsymbol{w},\sigma^2|\boldsymbol{w}_0,\Sigma_0,a_0,b_0)=N(\boldsymbol{w}|\boldsymbol{w}_0,\sigma^2 \Sigma_0)IG(\sigma^2|a_0,b_0)$$
 其中 $IG(\sigma^2|a_0,b_0) \propto (\sigma^2)^{-a_0-1}e^{-b_0/\sigma^2}$ 。
 
+记 $\beta=\frac{1}{\sigma^{2}}$，故其服从Gamma分布。
+
+设权重各分量的均值皆为0，且相互独立，但不假设其方差相同，即：
+$p(w|\alpha)=N(w|0,diag(\alpha)^{-1}),d=(a_{1},...,a_{d}),(diag(\alpha)=V_{0}^{-1}is$ the precision motrix)
