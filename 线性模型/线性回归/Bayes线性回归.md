@@ -51,11 +51,6 @@ $$P(\boldsymbol{w},\sigma^2)=NIG(\boldsymbol{w},\sigma^2|\boldsymbol{w}_0,\Sigma
 设权重各分量的均值皆为0，且相互独立，但其方差不同，分别记为 $\alpha _i^{-1}$ 即 $\Sigma_0=\mathrm{diag}(\alpha)^{-1}$，其中 $\alpha=(\alpha_{1},...,\alpha_{d})$。
 故
 $$ \begin{align}
-P(y|X,\alpha,\beta)&=\int N(y|Xw,\beta^{-1}I_{n})N(w|0,diag(\alpha)^{-1})dw\\&=N(y|0,\beta^{-1}I_{n}+Xdiag(\alpha)^{-1}X^{7})
+P(y|X,\alpha,\beta)&=\int \mathcal{N}(y|Xw,\beta^{-1}I_{n})\mathcal{N}(w|0,\mathrm{diag}(\alpha)^{-1})dw \\
+&=\mathcal{N}(y|0,\beta^{-1}I_{n}+X\mathrm{diag}(\alpha)^{-1}X^\mathsf{T})
 \end{align} $$
-
-
-$$p(w|\alpha)=N(w|0,diag(\alpha)^{-1}),$$
-
-
-$diag(\alpha)=V_{0}^{-1}$ the precision motrix)
