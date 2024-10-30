@@ -22,6 +22,7 @@ $$ \hat{\omega}_{MAP}=\left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\sigma^{-2}\math
 用其对新的数据点进行预测：
 $$\begin{align}
 p(y_{new}|x_{new},\mathcal{D},\sigma^{2}) &= \int  p(y_{new}|\mathbf{x}_{new}^\mathsf{T}\boldsymbol{\omega},\sigma^2)p(\boldsymbol{\omega}|\mathcal{D},\sigma^{2})  \, d\boldsymbol{\omega} \\
-&=\int  p(y_{new}|\mathbf{x}_{new}^\mathsf{T}\boldsymbol{\omega},\sigma^2)p(\boldsymbol{\omega}|\mathcal{D},\sigma^{2})  \, d\boldsymbol{\omega}
+&=\int  \mathcal{N}(y_{new}|\mathbf{x}_{new}^\mathsf{T}\boldsymbol{\omega},\sigma^2)\mathcal{N}(\boldsymbol{\omega}|\boldsymbol{\omega}_N,\boldsymbol{\Sigma}_N)  \, d\boldsymbol{\omega} \\
+ &= \mathcal{N}(y_{new}|\mathbf{x}_{new}^\mathsf{T}\boldsymbol{\omega}_N,\sigma^{2}+\mathbf{x}_{new}^\mathsf{T}\boldsymbol{\Sigma}_N\mathbf{x}_{new})
 \end{align}
  $$
