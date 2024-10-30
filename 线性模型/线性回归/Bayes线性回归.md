@@ -10,8 +10,12 @@ $$ \begin{align}
 \boldsymbol{\omega}_N & = \Sigma_N \left(\Sigma_0^{-1}\boldsymbol{\omega}_0+\mathbf{X}^T(\sigma^{2} \mathbf{I}_N)^{-1}\boldsymbol{y}\right)=\sigma^{-2} \Sigma_N \mathbf{X}^\mathsf{T} \boldsymbol{y} + \Sigma_N \Sigma_0^{-1} \boldsymbol{\omega}_0
 \end{align} $$
 
-若再假设其权重各分量独立同分布，即 $\omega_0=0,\Sigma_0=\tau^{2}\mathbf{I}_N$，则
+若再假设其权重*各分量独立同分布*，即 $\omega_0=0,\Sigma_0=\tau^{2}\mathbf{I}_N$，则
 $$ \begin{align}
 \Sigma_N &= \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}  \\
-\boldsymbol{\omega}_N & = \sigma^{-2} \Sigma_N\mathbf{X}^\mathsf{T} \boldsymbol{y} 
+\boldsymbol{\omega}_N & = \sigma^{-2} \Sigma_N\mathbf{X}^\mathsf{T} \boldsymbol{y} =  \sigma^{-2} \left(\tau^{-2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} = \left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y}
 \end{align} $$
+此时其最大后验估计为：
+$$ \hat{\omega}_{MAP}=\left( \frac{\sigma^2}{\tau^2} \mathbf{I}+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1}\mathbf{X}^\mathsf{T} \boldsymbol{y} $$
+此即[[岭回归]]。
+
