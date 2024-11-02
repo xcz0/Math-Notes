@@ -1,2 +1,2 @@
-# Markov过程
+# Markov链
 
