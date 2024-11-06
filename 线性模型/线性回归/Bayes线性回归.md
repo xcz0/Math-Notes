@@ -39,7 +39,7 @@ $$ \begin{align}
 方差为：
 $$ \begin{align}
 \sigma^{2}+\mathbf{x}_*^\mathsf{T}\boldsymbol{\Sigma}_N\mathbf{x}_* & =\sigma^{2}+\mathbf{x}_*^\mathsf{T}\left(\Sigma_0+\sigma^{-2}\mathbf{X}^\mathsf{T} \mathbf{X}  \right)^{-1} \mathbf{x}_* \\
- & = \sigma^2+\mathbf{x}_*^\mathsf{T}\Sigma_0\left[\mathbf{I}-\mathbf{X}^\mathsf{T}(\sigma^2 \mathbf{I}+\mathbf{X}\Sigma_0\mathbf{X}^\mathsf{T})^{-1}\mathbf{X}\Sigma_0\right]\mathbf{x}_*
+ & = \sigma^2+\mathbf{x}_*^\mathsf{T}\Sigma_0\mathbf{x}_*-\mathbf{x}_*^\mathsf{T}\Sigma_0\mathbf{X}(\sigma^2 \mathbf{I}+\mathbf{X}\Sigma_0\mathbf{X}^\mathsf{T})^{-1}\mathbf{X}^\mathsf{T}\Sigma_0\mathbf{x}_*
 \end{align} $$
 
 由于 $\mathbf{X}^\mathsf{T} \mathbf{X}$ 是实对称矩阵，故可对其进行正交分解：$\mathbf{X}^\mathsf{T} \mathbf{X}=U \Lambda U^\mathsf{T}$，其中 $U$ 为正交矩阵，$\Lambda$ 为对角矩阵。代入化简以上计算得：
