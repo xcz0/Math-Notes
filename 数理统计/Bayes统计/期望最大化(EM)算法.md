@@ -16,6 +16,14 @@ $$\begin{align}
 
 记 $\mathbb{E}_{q_n}\left[\log p(\boldsymbol{x}_n,\boldsymbol{z}_n|\boldsymbol{\theta})\right]+\mathbb{H}(q_n)=\mathrm{L}(\boldsymbol{\theta},q_{n})$，且记 $\mathcal{L}(\boldsymbol{\theta},q_{1:N})\triangleq\sum_n\mathcal{L}(\boldsymbol{\theta},q_n)$ ，称为**信念下界**(evidence lower bound, ELBO)。其优化方法为[[变分推断]]。
 
-
-
-
+$$\begin{align}
+\mathrm{L}(\boldsymbol{\theta},q_{n})& =\sum_{\boldsymbol{z}_n}q_n(\boldsymbol{z}_n)\log\frac{p(\boldsymbol{x}_n,\boldsymbol{z}_n|\boldsymbol{\theta})}{q_n(\boldsymbol{z}_n)} \\
+&=\sum_{\boldsymbol{z}_n}q_n(\boldsymbol{z}_n)\log\frac{p(\boldsymbol{z}_n|\boldsymbol{x}_n,\boldsymbol{\theta})p(\boldsymbol{x}_n|\boldsymbol{\theta})}{q_n(\boldsymbol{z}_n)} \\
+&=\sum_{\boldsymbol{z}_n}q_n(\boldsymbol{z}_n)\log\frac{p(\boldsymbol{z}_n|\boldsymbol{x}_n,\boldsymbol{\theta})}{q_n(\boldsymbol{z}_n)}+\sum_{\boldsymbol{z}_n}q_n(\boldsymbol{z}_n)\log p(\boldsymbol{x}_n|\boldsymbol{\theta}) \\
+&=-D_{\mathbb{KL}}\left(q_n(\boldsymbol{z}_n)\parallel p(\boldsymbol{z}_n|\boldsymbol{x}_n,\boldsymbol{\theta})\right)+\log p(\boldsymbol{x}_n|\boldsymbol{\theta})
+\end{align}$$
+其中 $D_{\mathbb{KL}}\left(q_n(\boldsymbol{z}_n)\parallel p(\boldsymbol{z}_n|\boldsymbol{x}_n,\boldsymbol{\theta})\right)$ 是两分布的 [[KL散度]]。由于其总是非负的，并且仅在两分布相同时才为 $0$。故
+$$q_n^*=\underset{q_n}{\arg\max}\ \mathrm{L}(\boldsymbol{\theta},q_{n})=p(\boldsymbol{z}_n|\boldsymbol{x}_n,\boldsymbol{\theta})$$
+并且
+$$\mathcal{L}(\boldsymbol{\theta},\{q_n^*\})=\sum_n\log p(\boldsymbol{x}_n|\boldsymbol{\theta})=\ell(\boldsymbol{\theta})$$
+故
