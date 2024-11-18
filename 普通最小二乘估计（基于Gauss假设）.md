@@ -52,4 +52,8 @@ E(\mathrm{RSS})& =\sum_{i=1}^n\sigma^2(1-h_{ii}) \\
 &=\sigma^{2}(n-p),
 \end{align}$$
 故其无偏估计为：
-$$ \hat{\sigma}^2 $$
+$$ \hat{\sigma^2} = \frac{\mathrm{RSS}}{n-p}=\frac{1}{n-p}\sum_{i=1}^{n} \hat{\varepsilon}_i^2 $$
+
+# 最小二乘估计的线性无偏最优性
+
+设$$
