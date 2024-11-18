@@ -11,7 +11,7 @@ $$Y=X\beta+\varepsilon$$
 > \end{align} $$
 
 采用[[普通最小二乘法（优化视角）]]中的结果作为参数 $\beta$ 的估计
-## 最小二乘估计的特性
+## 最小二乘估计的期望与方差
 
 由于 $E(Y)=X\beta$，故
 $$\begin{aligned}
@@ -28,4 +28,28 @@ $$\begin{align}
 &=\sigma^2(X^\mathrm{T}X)^{-1}.
 \end{align}$$
 
-由于 $\hat{Y}$
+由于 $\hat{Y},\hat{\varepsilon}$ 为 $Y$ 的线性变换，即：
+$$\begin{bmatrix}\hat{Y}\\ \hat{\varepsilon}\end{bmatrix}
+=\begin{bmatrix}HY\\ (I_n-H)Y\end{bmatrix}
+=\begin{bmatrix}H\\ I_n-H\end{bmatrix}Y$$
+故其协方差为：
+$$\begin{align}
+\mathrm{cov}\begin{bmatrix}\hat{Y}\\ \hat{\varepsilon}\end{bmatrix}& =\begin{bmatrix}H\\ I_n-H\end{bmatrix}\mathrm{cov}(Y)\begin{bmatrix}H^\mathsf{T} & (I_n-H)^\mathsf{T}\end{bmatrix} \\
+&=\sigma^2\begin{bmatrix}H\\ I_n-H\end{bmatrix}\begin{bmatrix}H^\mathsf{T} & (I_n-H)^\mathsf{T}\end{bmatrix} \\
+&=\sigma^{2}\begin{bmatrix}H & 0 \\ 0 & I_n-H\end{bmatrix}
+\end{align}$$
+
+故 $\hat{Y}$ 与 $\hat{\varepsilon}$ 不相关，但其分量各自相关：
+$$\mathrm{cov}(\hat{y}_i,\hat{y}_j)=\sigma^2h_{ij},\quad\mathrm{cov}(\hat{\varepsilon}_i,\hat{\varepsilon}_j)=\sigma^2(1-h_{ij})$$
+## 方差估计
+
+误差项的方差也为模型的参数，考虑其经验估计：残差平方和：
+$$ \mathrm{RSS}=\sum_{i=1}^{n} \hat{\varepsilon}_i^2 $$
+其期望均值为：
+$$\begin{align}
+E(\mathrm{RSS})& =\sum_{i=1}^n\sigma^2(1-h_{ii}) \\
+&=\sigma^{2}\left\{n-\mathrm{trace}(H)\right\} \\
+&=\sigma^{2}(n-p),
+\end{align}$$
+故其无偏估计为：
+$$ \hat{\sigma}^2 $$
