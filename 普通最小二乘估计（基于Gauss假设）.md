@@ -21,9 +21,11 @@ E(\hat{\beta})& =\quad E\left\{(X^{\mathrm{T}}X)^{-1}X^{\mathrm{T}}Y\right\} \\
 &\begin{array}{cc}{=}&{\beta.}\end{array}
 \end{aligned}$$
 由于 $cov(Y)=\sigma^2 I_n$，故
-$$\begin{aligned}
+$$\begin{align}
 \operatorname{cov}(\hat{\beta})& =\mathrm{cov}(HY) \\
-&=(X^\mathrm{T}X)^{-1}X^\mathrm{T}\mathrm{cov}(Y)X(X^\mathrm{T}X)^{-1} \\
+&=H\mathrm{cov}(Y)H^\mathsf{T} \\
 &=\sigma^{2}(X^{\mathrm{T}}X)^{-1}X^{\mathrm{T}}X(X^{\mathrm{T}}X)^{-1} \\
 &=\sigma^2(X^\mathrm{T}X)^{-1}.
-\end{aligned}$$
+\end{align}$$
+
+由于 $\hat{Y}$
