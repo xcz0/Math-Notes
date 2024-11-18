@@ -71,10 +71,10 @@
 
     // superscript
     {trigger: "tp", replacement: "^{$0}", options: "mA"},
-    {trigger: "sr", replacement: "^{2}", options: "mA"},
-    {trigger: "cb", replacement: "^{3}", options: "mA"},
+    {trigger: "sr", replacement: "^2", options: "mA"},
+    {trigger: "cb", replacement: "^3", options: "mA"},
     {trigger: "rd", replacement: "^{$0}$1", options: "mA"},
-    {trigger: "conj", replacement: "^{*}", options: "mA"},
+    {trigger: "conj", replacement: "^*", options: "mA"},
     {trigger: "inv", replacement: "^{-1}", options: "mA"},
     {trigger: "trans", replacement: "^\\mathsf{T}", options: "mA"},
     {trigger: "cp", replacement: "^{\\complement}", options: "mA"},
@@ -204,7 +204,6 @@
 
     
     {trigger: "ell", replacement: "\\ell", options: "mA"},
-    {trigger: "lll", replacement: "\\ell", options: "mA"},
     {trigger: "LL", replacement: "\\mathcal{L}", options: "mA"},
     {trigger: "HH", replacement: "\\mathcal{H}", options: "mA"},
     {trigger: "CC", replacement: "\\mathbb{C}", options: "mA"},
