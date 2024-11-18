@@ -104,6 +104,8 @@
     {trigger: "det", replacement: "\\det", options: "mA"},
     {trigger: "re", replacement: "\\mathrm{Re}", options: "mA"},
     {trigger: "im", replacement: "\\mathrm{Im}", options: "mA"},
+    {trigger: "rank", replacement: "\\mathrm{rank}", options: "mA"},
+
 
     {trigger: "([a-zA-Z]),\\.", replacement: "\\mathbf{[[0]]}", options: "rmA"},
     {trigger: "([a-zA-Z])\\.,", replacement: "\\mathbf{[[0]]}", options: "rmA"},
@@ -192,6 +194,7 @@
     {trigger: "xx", replacement: "\\times", options: "mA"},
     {trigger: "**", replacement: "\\cdot", options: "mA"},
     {trigger: "para", replacement: "\\parallel", options: "mA"},
+    {trigger: "|_", replacement: "\\perp", options: "mA"},
 
     
 
@@ -210,7 +213,7 @@
     {trigger: "\\mathbb{1}I", replacement: "\\hat{\\mathbb{1}}", options: "mA"},
     {trigger: "BB", replacement: "\\mathbf{B}", options: "mA"},
     {trigger: "FF", replacement: "\\mathscr{F}", options: "mA"},
-    {trigger: "rank", replacement: "\\mathrm{rank}", options: "mA"},
+    
 
 
 
