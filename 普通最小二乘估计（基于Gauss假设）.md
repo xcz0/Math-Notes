@@ -56,4 +56,27 @@ $$ \hat{\sigma^2} = \frac{\mathrm{RSS}}{n-p}=\frac{1}{n-p}\sum_{i=1}^{n} \hat{\v
 
 # 最小二乘估计的线性无偏最优性
 
-设$$
+设 $\tilde{\beta}=AY$ 是 $\beta$ 的一个无偏估计：$E(\tilde{\beta})=\beta$。由于
+$$E(\tilde{\beta})=AE(Y)=AX\beta$$
+考虑 $\beta$ 的任意性，必然有： $AX=I_p$。
+
+将 $\tilde{\beta}$ 的协方差拆解为：
+$$\begin{align}
+\mathrm{cov}(\tilde{\beta})&=\mathrm{cov}(\hat{\beta}+\tilde{\beta}-\hat{\beta})\\
+&=\mathrm{cov}(\hat{\beta})+\mathrm{cov}(\tilde{\beta}-\hat{\beta})+\mathrm{cov}(\hat{\beta},\tilde{\beta}-\hat{\beta})+\mathrm{cov}(\tilde{\beta}-\hat{\beta},\hat{\beta})
+\end{align}$$
+其中：
+$$\begin{align}
+\operatorname{cov}(\hat{\beta},\tilde{\beta}-\hat{\beta})& =\mathrm{cov}\left\{HY,(A-\hat{A})Y\right\} \\
+&=H\mathrm{cov}(Y)(A-\hat{A})^{\mathrm{T}} \\
+&=\sigma^{2}\hat{A}(A-\hat{A})^{\mathrm{T}} \\
+&=\sigma^{2}(HA^{\mathrm{T}}-HH^{\mathrm{T}}) \\
+&=\sigma^{2}\left\{(X^{\mathrm{T}}X)^{-1}X^{\mathrm{T}}A^{\mathrm{T}}-(X^{\mathrm{T}}X)^{-1}X^{\mathrm{T}}X(X^{\mathrm{T}}X)^{-1}\right\} \\
+&=\sigma^{2}\left\{(X^{\mathrm{T}}X)^{-1}I_{p}-(X^{\mathrm{T}}X)^{-1}\right\} \\
+&=0
+\end{align}$$
+故
+$$ \mathrm{cov}(\tilde{\beta})=\mathrm{cov}(\hat{\beta})+\mathrm{cov}(\tilde{\beta}-\hat{\beta}) $$
+所以
+$$\mathrm{cov}(\tilde{\beta})-\mathrm{cov}(\hat{\beta})=\mathrm{cov}(\tilde{\beta}-\hat{\beta})\succeq0.$$ 即最小二乘估计在所有线性无偏估计中是最优的。
+
